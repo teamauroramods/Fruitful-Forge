@@ -50,3 +50,9 @@ Fruit, but good
     versionRange="[1.15.2]"
     ordering="NONE"
     side="BOTH"
+[[dependencies.fruitful]]
+    modId="abnormals_core"
+    mandatory=true
+    versionRange="[1.0.4,)"
+    ordering="AFTER"
+    side="BOTH"
