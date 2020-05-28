@@ -1,5 +1,6 @@
 package com.epic312.fruitful.core;
 
+import com.epic312.fruitful.core.other.FruitfulEvents;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -37,6 +38,7 @@ public class Fruitful
         REGISTRY_HELPER.getDeferredItemRegister().register(eventBus);
         REGISTRY_HELPER.getDeferredBlockRegister().register(eventBus);
 
+        eventBus.register(new FruitfulEvents());
         MinecraftForge.EVENT_BUS.register(this);
 
         eventBus.addListener(this::commonSetup);
