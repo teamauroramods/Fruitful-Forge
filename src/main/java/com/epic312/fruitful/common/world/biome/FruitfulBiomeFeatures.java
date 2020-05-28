@@ -25,7 +25,7 @@ public class FruitfulBiomeFeatures {
     public static final TreeFeatureConfig APPLE_OAK_TREE_CONFIG = (
             new TreeFeatureConfig.Builder(
                     new SimpleBlockStateProvider(OAK_LOG),
-                    (new WeightedBlockStateProvider()).func_227407_a_(APPLE_OAK_LEAVES,199).func_227407_a_(APPLE_OAK_LEAVES,1),
+                    (new WeightedBlockStateProvider()).func_227407_a_(OAK_LEAVES,199).func_227407_a_(APPLE_OAK_LEAVES,1),
                     new BlobFoliagePlacer(2, 0))).baseHeight(4).heightRandA(2).foliageHeight(3).ignoreVines().setSapling((net.minecraftforge.common.IPlantable) Blocks.OAK_SAPLING)
             .build();
 
@@ -40,52 +40,50 @@ public class FruitfulBiomeFeatures {
         List<ConfiguredFeature<?, ?>> list = biome.getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION);
         List<ConfiguredFeature<?, ?>> toRemove = new ArrayList<>();
         int listSize = list.size();
-        //if (biome == Biomes.FOREST) {
-            for (int i = 0; i < listSize; i++) {
-                ConfiguredFeature<?, ?> configuredFeature = list.get(i);
-                if (configuredFeature.config instanceof DecoratedFeatureConfig) {
-                    DecoratedFeatureConfig decorated = (DecoratedFeatureConfig) configuredFeature.config;
-                    if (decorated.feature.config instanceof MultipleRandomFeatureConfig) {
-                        MultipleRandomFeatureConfig tree = (MultipleRandomFeatureConfig) decorated.feature.config;
-                        List<ConfiguredRandomFeatureList<?>> tempFeatures = new ArrayList<>();
-                        for (ConfiguredRandomFeatureList crfl : tree.features) {
-                            if (crfl.feature.feature instanceof TreeFeature) {
-                                if (crfl.feature.config == DefaultBiomeFeatures.OAK_TREE_CONFIG) {
-                                    tempFeatures.add(new ConfiguredRandomFeatureList<TreeFeatureConfig>(Feature.NORMAL_TREE.withConfiguration(APPLE_OAK_TREE_CONFIG), crfl.chance));
-                                } else if (crfl.feature.config == DefaultBiomeFeatures.OAK_TREE_WITH_MORE_BEEHIVES_CONFIG) {
-                                    tempFeatures.add(new ConfiguredRandomFeatureList<TreeFeatureConfig>(Feature.NORMAL_TREE.withConfiguration(APPLE_OAK_TREE_WITH_MORE_BEEHIVES_CONFIG), crfl.chance));
-                                }
-                            } else {
-                                tempFeatures.add(crfl);
+        for (int i = 0; i < listSize; i++) {
+            ConfiguredFeature<?, ?> configuredFeature = list.get(i);
+            if (configuredFeature.config instanceof DecoratedFeatureConfig) {
+                DecoratedFeatureConfig decorated = (DecoratedFeatureConfig) configuredFeature.config;
+                if (decorated.feature.config instanceof MultipleRandomFeatureConfig) {
+                    MultipleRandomFeatureConfig tree = (MultipleRandomFeatureConfig) decorated.feature.config;
+                    List<ConfiguredRandomFeatureList<?>> tempFeatures = new ArrayList<>();
+                    for (ConfiguredRandomFeatureList crfl : tree.features) {
+                        if (crfl.feature.feature instanceof TreeFeature) {
+                            if (crfl.feature.config == DefaultBiomeFeatures.OAK_TREE_CONFIG) {
+                                tempFeatures.add(new ConfiguredRandomFeatureList<TreeFeatureConfig>(Feature.NORMAL_TREE.withConfiguration(APPLE_OAK_TREE_CONFIG), crfl.chance));
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.OAK_TREE_WITH_MORE_BEEHIVES_CONFIG) {
+                                tempFeatures.add(new ConfiguredRandomFeatureList<TreeFeatureConfig>(Feature.NORMAL_TREE.withConfiguration(APPLE_OAK_TREE_WITH_MORE_BEEHIVES_CONFIG), crfl.chance));
                             }
-                        }
-                        if (tree.defaultFeature.feature instanceof TreeFeature) {
-                            TreeFeatureConfig tempDefCfg = (TreeFeatureConfig) tree.defaultFeature.config;
-                            if (((TreeFeatureConfig) tree.defaultFeature.config).getSapling() == Blocks.OAK_SAPLING) {
-                                tempDefCfg = APPLE_OAK_TREE_CONFIG;
-                            }
-                            ConfiguredFeature<?,?> tempDef = new ConfiguredFeature<TreeFeatureConfig, Feature<TreeFeatureConfig>>((Feature<TreeFeatureConfig>) tree.defaultFeature.feature, tempDefCfg);
-                            ConfiguredFeature<DecoratedFeatureConfig, ?> tempFeature = new ConfiguredFeature<DecoratedFeatureConfig, DecoratedFeature>(
-                                    (DecoratedFeature) configuredFeature.feature, new DecoratedFeatureConfig(
-                                    new ConfiguredFeature<MultipleRandomFeatureConfig, Feature<MultipleRandomFeatureConfig>>((Feature<MultipleRandomFeatureConfig>) decorated.feature.feature,
-                                            new MultipleRandomFeatureConfig(tempFeatures, tempDef)
-                                    ), decorated.decorator
-                            ));
-                            biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, tempFeature);
                         } else {
-                            ConfiguredFeature<DecoratedFeatureConfig, ?> tempFeature = new ConfiguredFeature<DecoratedFeatureConfig, DecoratedFeature>(
-                                    (DecoratedFeature) configuredFeature.feature, new DecoratedFeatureConfig(
+                            tempFeatures.add(crfl);
+                        }
+                    }
+                    if (tree.defaultFeature.feature instanceof TreeFeature) {
+                        TreeFeatureConfig tempDefCfg = (TreeFeatureConfig) tree.defaultFeature.config;
+                        if (((TreeFeatureConfig) tree.defaultFeature.config).getSapling() == Blocks.OAK_SAPLING) {
+                            tempDefCfg = APPLE_OAK_TREE_CONFIG;
+                        }
+                        ConfiguredFeature<?,?> tempDef = new ConfiguredFeature<TreeFeatureConfig, Feature<TreeFeatureConfig>>((Feature<TreeFeatureConfig>) tree.defaultFeature.feature, tempDefCfg);
+                        ConfiguredFeature<DecoratedFeatureConfig, ?> tempFeature = new ConfiguredFeature<DecoratedFeatureConfig, DecoratedFeature>(
+                                (DecoratedFeature) configuredFeature.feature, new DecoratedFeatureConfig(
+                                        new ConfiguredFeature<MultipleRandomFeatureConfig, Feature<MultipleRandomFeatureConfig>>((Feature<MultipleRandomFeatureConfig>) decorated.feature.feature,
+                                            new MultipleRandomFeatureConfig(tempFeatures, tempDef)
+                                        ), decorated.decorator
+                        ));
+                        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, tempFeature);
+                    } else {
+                        ConfiguredFeature<DecoratedFeatureConfig, ?> tempFeature = new ConfiguredFeature<DecoratedFeatureConfig, DecoratedFeature>(
+                                (DecoratedFeature) configuredFeature.feature, new DecoratedFeatureConfig(
                                     new ConfiguredFeature<MultipleRandomFeatureConfig, Feature<MultipleRandomFeatureConfig>>((Feature<MultipleRandomFeatureConfig>) decorated.feature.feature,
                                             new MultipleRandomFeatureConfig(tempFeatures, tree.defaultFeature)
                                     ), decorated.decorator
-                            ));
-                            biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, tempFeature);
-                        }
-                        toRemove.add(configuredFeature);
+                        ));
+                        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, tempFeature);
                     }
+                    toRemove.add(configuredFeature);
                 }
             }
-        //}
+        }
         for (int i = 0; i < toRemove.size(); i++) {
             list.remove(toRemove.get(i));
         }
