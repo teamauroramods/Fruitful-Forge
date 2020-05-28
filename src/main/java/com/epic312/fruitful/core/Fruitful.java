@@ -2,6 +2,7 @@ package com.epic312.fruitful.core;
 
 import com.epic312.fruitful.core.other.FruitfulBlockData;
 import com.epic312.fruitful.core.other.FruitfulEvents;
+import com.epic312.fruitful.core.registry.FruitfulFeatures;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -51,6 +52,7 @@ public class Fruitful
     private void commonSetup(final FMLCommonSetupEvent event) {
         FruitfulBlockData.registerCompostables();
         FruitfulBlockData.registerFlammables();
+        FruitfulFeatures.generateFeatures();
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
