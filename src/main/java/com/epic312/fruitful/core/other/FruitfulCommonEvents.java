@@ -28,7 +28,11 @@ public class FruitfulCommonEvents {
                 event.setResult(Event.Result.DENY);
                 world.setBlockState(pos, Blocks.AIR.getDefaultState());
                 ConfiguredFeature<TreeFeatureConfig, ?> configuredFeature;
-                configuredFeature = (rand.nextInt(10) == 0 ? Feature.FANCY_TREE.withConfiguration(FruitfulBiomeFeatures.DENSE_APPLE_FANCY_TREE_CONFIG) : Feature.NORMAL_TREE.withConfiguration(FruitfulBiomeFeatures.DENSE_APPLE_OAK_TREE_CONFIG));
+                if (world.getBlockState(pos.down()).getBlock() == Blocks.PODZOL) {
+                    configuredFeature = (rand.nextInt(10) == 0 ? Feature.FANCY_TREE.withConfiguration(FruitfulBiomeFeatures.DENSE_APPLE_FANCY_TREE_CONFIG) : Feature.NORMAL_TREE.withConfiguration(FruitfulBiomeFeatures.DENSE_APPLE_OAK_TREE_CONFIG));
+                } else {
+                    configuredFeature = (rand.nextInt(10) == 0 ? Feature.FANCY_TREE.withConfiguration(FruitfulBiomeFeatures.APPLE_FANCY_TREE_CONFIG) : Feature.NORMAL_TREE.withConfiguration(FruitfulBiomeFeatures.APPLE_OAK_TREE_CONFIG));
+                }
                 if (!configuredFeature.place(world, world.getChunkProvider().getChunkGenerator(), rand, pos)) {
                     world.setBlockState(pos, state);
                 }
