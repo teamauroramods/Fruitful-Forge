@@ -36,6 +36,27 @@ public class FruitfulBiomeFeatures {
                     new BlobFoliagePlacer(2, 0))).baseHeight(4).heightRandA(2).foliageHeight(3).ignoreVines().decorators(ImmutableList.of(new BeehiveTreeDecorator(0.05F))).setSapling((net.minecraftforge.common.IPlantable)Blocks.OAK_SAPLING)
             .build();
 
+    public static final TreeFeatureConfig DENSE_APPLE_OAK_TREE_CONFIG = (
+            new TreeFeatureConfig.Builder(
+                    new SimpleBlockStateProvider(OAK_LOG),
+                    (new WeightedBlockStateProvider()).func_227407_a_(OAK_LEAVES,1).func_227407_a_(APPLE_OAK_LEAVES,19),
+                    new BlobFoliagePlacer(2, 0))).baseHeight(4).heightRandA(2).foliageHeight(3).ignoreVines().setSapling((net.minecraftforge.common.IPlantable) Blocks.OAK_SAPLING)
+            .build();
+
+    public static final TreeFeatureConfig APPLE_FANCY_TREE_CONFIG = (
+            new TreeFeatureConfig.Builder(
+                    new SimpleBlockStateProvider(OAK_LOG),
+                    (new WeightedBlockStateProvider()).func_227407_a_(OAK_LEAVES,199).func_227407_a_(APPLE_OAK_LEAVES,1),
+                    new BlobFoliagePlacer(0, 0))).setSapling((net.minecraftforge.common.IPlantable)Blocks.OAK_SAPLING)
+            .build();
+
+    public static final TreeFeatureConfig DENSE_APPLE_FANCY_TREE_CONFIG = (
+            new TreeFeatureConfig.Builder(
+                    new SimpleBlockStateProvider(OAK_LOG),
+                    (new WeightedBlockStateProvider()).func_227407_a_(OAK_LEAVES,1).func_227407_a_(APPLE_OAK_LEAVES,19),
+                    new BlobFoliagePlacer(0, 0))).setSapling((net.minecraftforge.common.IPlantable)Blocks.OAK_SAPLING)
+            .build();
+
     public static void addFruitTrees(Biome biome) {
         List<ConfiguredFeature<?, ?>> list = biome.getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION);
         List<ConfiguredFeature<?, ?>> toRemove = new ArrayList<>();

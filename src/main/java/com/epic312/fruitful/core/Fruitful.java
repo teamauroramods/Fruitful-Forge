@@ -1,6 +1,7 @@
 package com.epic312.fruitful.core;
 
 import com.epic312.fruitful.core.other.FruitfulBlockData;
+import com.epic312.fruitful.core.other.FruitfulCommonEvents;
 import com.epic312.fruitful.core.other.FruitfulEvents;
 import com.epic312.fruitful.core.registry.FruitfulFeatures;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
@@ -50,6 +51,7 @@ public class Fruitful
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+        MinecraftForge.EVENT_BUS.register(new FruitfulCommonEvents());
         FruitfulBlockData.registerCompostables();
         FruitfulBlockData.registerFlammables();
         FruitfulFeatures.generateFeatures();
