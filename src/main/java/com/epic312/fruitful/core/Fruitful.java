@@ -12,6 +12,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -50,14 +51,18 @@ public class Fruitful
         });
     }
 
+    @SuppressWarnings("deprecation")
     private void commonSetup(final FMLCommonSetupEvent event) {
         MinecraftForge.EVENT_BUS.register(new FruitfulCommonEvents());
-        FruitfulBlockData.registerCompostables();
-        FruitfulBlockData.registerFlammables();
-        FruitfulFeatures.generateFeatures();
+        DeferredWorkQueue.runLater(() -> {
+            FruitfulBlockData.registerCompostables();
+            FruitfulBlockData.registerFlammables();
+            FruitfulFeatures.generateFeatures();
+        });
     }
 
+    @SuppressWarnings("deprecation")
     private void clientSetup(final FMLClientSetupEvent event) {
-        FruitfulBlockData.setupRenderLayer();
+        DeferredWorkQueue.runLater(FruitfulBlockData::setupRenderLayer);
     }
 }
