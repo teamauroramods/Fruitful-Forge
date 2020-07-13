@@ -6,6 +6,7 @@ import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import org.graalvm.compiler.core.common.cfg.AbstractBlockBase;
@@ -14,5 +15,5 @@ import org.graalvm.compiler.core.common.cfg.AbstractBlockBase;
 public class FruitfulBlocks {
     public static final RegistryHelper HELPER = Fruitful.REGISTRY_HELPER;
 
-    public static final RegistryObject<Block> APPLE_OAK_LEAVES = HELPER.createBlock("apple_oak_leaves", ()->new AbnormalsLeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES).notSolid()), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> APPLE_OAK_LEAVES = HELPER.createBlock("apple_oak_leaves", ()->new AbnormalsLeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES).notSolid().harvestTool(ToolType.HOE)), ItemGroup.DECORATIONS);
 }
