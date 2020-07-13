@@ -32,7 +32,9 @@ public class FruitfulBiomeFeatures {
     private static Random probeRand = new Random();
     private static BlockPos probePos = new BlockPos(0,0,0);
 
-    private static final BeehiveTreeDecorator FruitfulBeehiveDecorator = new BeehiveTreeDecorator(0.05F);
+    private static final BeehiveTreeDecorator FruitfulBeehiveDecorator1 = new BeehiveTreeDecorator(0.002F);
+    private static final BeehiveTreeDecorator FruitfulBeehiveDecorator2 = new BeehiveTreeDecorator(0.02F);
+    private static final BeehiveTreeDecorator FruitfulBeehiveDecorator3 = new BeehiveTreeDecorator(0.05F);
 
     public static final BaseTreeFeatureConfig APPLE_OAK_TREE_CONFIG = (
             new BaseTreeFeatureConfig.Builder(
@@ -43,7 +45,9 @@ public class FruitfulBiomeFeatures {
                     new TwoLayerFeature(1, 0, 1)))
             .func_236700_a_().build();
 
-    public static final BaseTreeFeatureConfig APPLE_OAK_TREE_WITH_MORE_BEEHIVES_CONFIG = APPLE_OAK_TREE_CONFIG.func_236685_a_(ImmutableList.of(FruitfulBeehiveDecorator));
+    public static final BaseTreeFeatureConfig APPLE_OAK_TREE_CONFIG_1 = APPLE_OAK_TREE_CONFIG.func_236685_a_(ImmutableList.of(FruitfulBeehiveDecorator1));
+    public static final BaseTreeFeatureConfig APPLE_OAK_TREE_CONFIG_2 = APPLE_OAK_TREE_CONFIG.func_236685_a_(ImmutableList.of(FruitfulBeehiveDecorator2));
+    public static final BaseTreeFeatureConfig APPLE_OAK_TREE_WITH_MORE_BEEHIVES_CONFIG = APPLE_OAK_TREE_CONFIG.func_236685_a_(ImmutableList.of(FruitfulBeehiveDecorator3));
 
     public static final BaseTreeFeatureConfig DENSE_APPLE_OAK_TREE_CONFIG = (
             new BaseTreeFeatureConfig.Builder(
@@ -63,6 +67,10 @@ public class FruitfulBiomeFeatures {
                     new TwoLayerFeature(0, 0, 0, OptionalInt.of(4))))
             .func_236700_a_().func_236702_a_(Heightmap.Type.MOTION_BLOCKING).build();
 
+    public static final BaseTreeFeatureConfig APPLE_FANCY_TREE_CONFIG_1 = APPLE_FANCY_TREE_CONFIG.func_236685_a_(ImmutableList.of(FruitfulBeehiveDecorator1));
+    public static final BaseTreeFeatureConfig APPLE_FANCY_TREE_CONFIG_2 = APPLE_FANCY_TREE_CONFIG.func_236685_a_(ImmutableList.of(FruitfulBeehiveDecorator2));
+    public static final BaseTreeFeatureConfig APPLE_FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG = APPLE_FANCY_TREE_CONFIG.func_236685_a_(ImmutableList.of(FruitfulBeehiveDecorator3));
+
     public static final BaseTreeFeatureConfig DENSE_APPLE_FANCY_TREE_CONFIG = (
             new BaseTreeFeatureConfig.Builder(
                     new SimpleBlockStateProvider(OAK_LOG),
@@ -81,14 +89,31 @@ public class FruitfulBiomeFeatures {
             if (configuredFeature.config instanceof DecoratedFeatureConfig) {
                 DecoratedFeatureConfig decorated = (DecoratedFeatureConfig) configuredFeature.config;
                 if (decorated.feature.config instanceof MultipleRandomFeatureConfig) {
+                    if (biome == Biomes.FOREST) {
+                        int i2 = 0;
+                    }
                     MultipleRandomFeatureConfig tree = (MultipleRandomFeatureConfig) decorated.feature.config;
                     List<ConfiguredRandomFeatureList<?>> tempFeatures = new ArrayList<>();
                     for (ConfiguredRandomFeatureList crfl : tree.features) {
                         if (crfl.feature.feature instanceof TreeFeature) {
                             if (crfl.feature.config == DefaultBiomeFeatures.OAK_TREE_CONFIG) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_OAK_TREE_CONFIG), crfl.chance));
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230132_o_) {
+                                tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_OAK_TREE_CONFIG_1), crfl.chance));
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230133_p_) {
+                                tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_OAK_TREE_CONFIG_2), crfl.chance));
                             } else if (crfl.feature.config == DefaultBiomeFeatures.OAK_TREE_WITH_MORE_BEEHIVES_CONFIG) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_OAK_TREE_WITH_MORE_BEEHIVES_CONFIG), crfl.chance));
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.FANCY_TREE_CONFIG) {
+                                tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_FANCY_TREE_CONFIG), crfl.chance));
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230131_m_) {
+                                tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_FANCY_TREE_CONFIG_1), crfl.chance));
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230134_q_) {
+                                tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_FANCY_TREE_CONFIG_2), crfl.chance));
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG) {
+                                tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG), crfl.chance));
+                            } else {
+                                tempFeatures.add(crfl);
                             }
                         } else {
                             tempFeatures.add(crfl);
@@ -96,8 +121,24 @@ public class FruitfulBiomeFeatures {
                     }
                     if (tree.defaultFeature.feature instanceof TreeFeature) {
                         BaseTreeFeatureConfig tempDefCfg = (BaseTreeFeatureConfig) tree.defaultFeature.config;
-                        if (((BaseTreeFeatureConfig) tree.defaultFeature.config).leavesProvider.getBlockState(probeRand, probePos).getBlock() == Blocks.OAK_LEAVES) {
+                        //if (((BaseTreeFeatureConfig) tree.defaultFeature.config).leavesProvider.getBlockState(probeRand, probePos).getBlock() == Blocks.OAK_LEAVES) {
+                        BaseTreeFeatureConfig treeCfg = (BaseTreeFeatureConfig) tree.defaultFeature.config;
+                        if (treeCfg == DefaultBiomeFeatures.OAK_TREE_CONFIG) {
                             tempDefCfg = APPLE_OAK_TREE_CONFIG;
+                        } else if (treeCfg == DefaultBiomeFeatures.field_230132_o_) {
+                            tempDefCfg = APPLE_OAK_TREE_CONFIG_1;
+                        } else if (treeCfg == DefaultBiomeFeatures.field_230133_p_) {
+                            tempDefCfg = APPLE_OAK_TREE_CONFIG_2;
+                        } else if (treeCfg == DefaultBiomeFeatures.OAK_TREE_WITH_MORE_BEEHIVES_CONFIG) {
+                            tempDefCfg = APPLE_OAK_TREE_WITH_MORE_BEEHIVES_CONFIG;
+                        } else if (treeCfg == DefaultBiomeFeatures.FANCY_TREE_CONFIG) {
+                            tempDefCfg = APPLE_FANCY_TREE_CONFIG;
+                        } else if (treeCfg == DefaultBiomeFeatures.field_230131_m_) {
+                            tempDefCfg = APPLE_FANCY_TREE_CONFIG_1;
+                        } else if (treeCfg == DefaultBiomeFeatures.field_230134_q_) {
+                            tempDefCfg = APPLE_FANCY_TREE_CONFIG_2;
+                        } else if (treeCfg == DefaultBiomeFeatures.FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG) {
+                            tempDefCfg = APPLE_FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG;
                         }
                         ConfiguredFeature<?,?> tempDef = new ConfiguredFeature<BaseTreeFeatureConfig, Feature<BaseTreeFeatureConfig>>((Feature<BaseTreeFeatureConfig>) tree.defaultFeature.feature, tempDefCfg);
                         ConfiguredFeature<DecoratedFeatureConfig, ?> tempFeature = new ConfiguredFeature<DecoratedFeatureConfig, DecoratedFeature>(
