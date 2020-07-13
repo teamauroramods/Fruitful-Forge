@@ -6,9 +6,9 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.world.SaplingGrowTreeEvent;
 import net.minecraftforge.eventbus.api.Event;
@@ -27,13 +27,15 @@ public class FruitfulCommonEvents {
             if (state.getBlock() == Blocks.OAK_SAPLING) {
                 event.setResult(Event.Result.DENY);
                 world.setBlockState(pos, Blocks.AIR.getDefaultState());
-                ConfiguredFeature<TreeFeatureConfig, ?> configuredFeature;
+                ConfiguredFeature<BaseTreeFeatureConfig, ?> configuredFeature;
                 if (world.getBlockState(pos.down()).getBlock() == Blocks.PODZOL) {
-                    configuredFeature = (rand.nextInt(10) == 0 ? Feature.FANCY_TREE.withConfiguration(FruitfulBiomeFeatures.DENSE_APPLE_FANCY_TREE_CONFIG) : Feature.NORMAL_TREE.withConfiguration(FruitfulBiomeFeatures.DENSE_APPLE_OAK_TREE_CONFIG));
+                    // field_236291_c_ = TREE, currently unmapped
+                    configuredFeature = (rand.nextInt(10) == 0 ? Feature.field_236291_c_.withConfiguration(FruitfulBiomeFeatures.DENSE_APPLE_FANCY_TREE_CONFIG) : Feature.field_236291_c_.withConfiguration(FruitfulBiomeFeatures.DENSE_APPLE_OAK_TREE_CONFIG));
                 } else {
-                    configuredFeature = (rand.nextInt(10) == 0 ? Feature.FANCY_TREE.withConfiguration(FruitfulBiomeFeatures.APPLE_FANCY_TREE_CONFIG) : Feature.NORMAL_TREE.withConfiguration(FruitfulBiomeFeatures.APPLE_OAK_TREE_CONFIG));
+                    configuredFeature = (rand.nextInt(10) == 0 ? Feature.field_236291_c_.withConfiguration(FruitfulBiomeFeatures.APPLE_FANCY_TREE_CONFIG) : Feature.field_236291_c_.withConfiguration(FruitfulBiomeFeatures.APPLE_OAK_TREE_CONFIG));
                 }
-                if (!configuredFeature.place(world, world.getChunkProvider().getChunkGenerator(), rand, pos)) {
+                // func_236265_a_ = place, currently unmapped
+                if (!configuredFeature.func_236265_a_(world, world.func_241112_a_(), world.getChunkProvider().getChunkGenerator(), rand, pos)) {
                     world.setBlockState(pos, state);
                 }
             }

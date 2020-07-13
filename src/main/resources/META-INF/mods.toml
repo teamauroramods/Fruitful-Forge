@@ -29,7 +29,7 @@ credits="Team Aurora" #optional
 authors="Epic312" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-Fruit, but good
+Improves apples and adds more fruits (coming soon™)
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.fruitful]] #optional
@@ -47,12 +47,12 @@ Fruit, but good
 [[dependencies.fruitful]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.15.2]"
+    versionRange="[1.16.1]"
     ordering="NONE"
     side="BOTH"
 [[dependencies.fruitful]]
     modId="abnormals_core"
     mandatory=true
-    versionRange="[1.0.4,)"
+    versionRange="[2.0.0,)"
     ordering="AFTER"
     side="BOTH"
