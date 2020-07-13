@@ -48,7 +48,7 @@ public class FruitfulBiomeFeatures {
     public static final BaseTreeFeatureConfig DENSE_APPLE_OAK_TREE_CONFIG = (
             new BaseTreeFeatureConfig.Builder(
                     new SimpleBlockStateProvider(OAK_LOG),
-                    (new WeightedBlockStateProvider()).addWeightedBlockstate(OAK_LEAVES,1).addWeightedBlockstate(APPLE_OAK_LEAVES,19),
+                    (new WeightedBlockStateProvider()).addWeightedBlockstate(OAK_LEAVES,6).addWeightedBlockstate(APPLE_OAK_LEAVES,4),
                     new BlobFoliagePlacer(2, 0, 0, 0, 3),
                     new StraightTrunkPlacer(4, 2, 0),
                     new TwoLayerFeature(1, 0, 1)))
@@ -66,7 +66,7 @@ public class FruitfulBiomeFeatures {
     public static final BaseTreeFeatureConfig DENSE_APPLE_FANCY_TREE_CONFIG = (
             new BaseTreeFeatureConfig.Builder(
                     new SimpleBlockStateProvider(OAK_LOG),
-                    (new WeightedBlockStateProvider()).addWeightedBlockstate(OAK_LEAVES,1).addWeightedBlockstate(APPLE_OAK_LEAVES,19),
+                    (new WeightedBlockStateProvider()).addWeightedBlockstate(OAK_LEAVES,6).addWeightedBlockstate(APPLE_OAK_LEAVES,4),
                     new FancyFoliagePlacer(2, 0, 4, 0, 4),
                     new FancyTrunkPlacer(3, 11, 0),
                     new TwoLayerFeature(0, 0, 0, OptionalInt.of(4))))
