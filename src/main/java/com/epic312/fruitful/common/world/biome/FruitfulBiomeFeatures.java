@@ -89,9 +89,6 @@ public class FruitfulBiomeFeatures {
             if (configuredFeature.config instanceof DecoratedFeatureConfig) {
                 DecoratedFeatureConfig decorated = (DecoratedFeatureConfig) configuredFeature.config;
                 if (decorated.feature.config instanceof MultipleRandomFeatureConfig) {
-                    if (biome == Biomes.FOREST) {
-                        int i2 = 0;
-                    }
                     MultipleRandomFeatureConfig tree = (MultipleRandomFeatureConfig) decorated.feature.config;
                     List<ConfiguredRandomFeatureList<?>> tempFeatures = new ArrayList<>();
                     for (ConfiguredRandomFeatureList crfl : tree.features) {
