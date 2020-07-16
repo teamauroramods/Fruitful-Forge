@@ -1,6 +1,5 @@
 package com.epic312.fruitful.common.world.biome;
 
-import biomesoplenty.api.biome.BOPBiomes;
 import com.epic312.fruitful.core.registry.FruitfulBlocks;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.BlockState;
