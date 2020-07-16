@@ -1,5 +1,6 @@
 package com.epic312.fruitful.common.world.biome;
 
+import biomesoplenty.api.biome.BOPBiomes;
 import com.epic312.fruitful.core.registry.FruitfulBlocks;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.BlockState;
@@ -19,10 +20,7 @@ import net.minecraft.world.gen.treedecorator.BeehiveTreeDecorator;
 import net.minecraft.world.gen.trunkplacer.FancyTrunkPlacer;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.OptionalInt;
-import java.util.Random;
+import java.util.*;
 
 public class FruitfulBiomeFeatures {
     public static BlockState OAK_LOG = Blocks.OAK_LOG.getDefaultState();
