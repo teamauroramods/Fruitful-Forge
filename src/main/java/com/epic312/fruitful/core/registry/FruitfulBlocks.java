@@ -5,6 +5,9 @@ import com.teamabnormals.abnormals_core.common.blocks.wood.AbnormalsLeavesBlock;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
@@ -17,4 +20,6 @@ public class FruitfulBlocks {
 
     public static final RegistryObject<Block> APPLE_OAK_LEAVES = HELPER.createBlock("apple_oak_leaves", ()->new AbnormalsLeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES).notSolid().harvestTool(ToolType.HOE)), ItemGroup.DECORATIONS);
     public static final RegistryObject<Block> PEACH_BIRCH_LEAVES = HELPER.createBlock("peach_birch_leaves", ()->new AbnormalsLeavesBlock(Block.Properties.from(Blocks.BIRCH_LEAVES).notSolid().harvestTool(ToolType.HOE)), ItemGroup.DECORATIONS);
+
+    public static final RegistryObject<Block> PEACH_CRATE = HELPER.createCompatBlock("quark", "peach_crate", () -> new Block(Block.Properties.create(Material.WOOD, MaterialColor.PURPLE).hardnessAndResistance(1.5F).sound(SoundType.WOOD)), ItemGroup.DECORATIONS);
 }

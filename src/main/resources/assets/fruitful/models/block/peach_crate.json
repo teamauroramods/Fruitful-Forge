@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "top": "fruitful:block/peach_crate_top",
+    "bottom": "fruitful:block/peach_crate_bottom",
+    "side": "fruitful:block/peach_crate"
+  }
+}
