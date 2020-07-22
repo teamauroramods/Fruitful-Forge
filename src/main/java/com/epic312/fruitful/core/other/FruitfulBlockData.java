@@ -15,21 +15,26 @@ import java.util.Arrays;
 public class FruitfulBlockData {
     public static void registerCompostables() {
         DataUtils.registerCompostable(0.95f, FruitfulBlocks.APPLE_OAK_LEAVES.get());
+        DataUtils.registerCompostable(0.95f, FruitfulBlocks.PEACH_BIRCH_LEAVES.get());
     }
 
     public static void registerFlammables() {
         DataUtils.registerFlammable(FruitfulBlocks.APPLE_OAK_LEAVES.get(), 30, 60);
+        DataUtils.registerFlammable(FruitfulBlocks.PEACH_BIRCH_LEAVES.get(), 30, 60);
     }
 
     public static void setupRenderLayer() {
         RenderTypeLookup.setRenderLayer(FruitfulBlocks.APPLE_OAK_LEAVES.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(FruitfulBlocks.PEACH_BIRCH_LEAVES.get(), RenderType.getCutoutMipped());
     }
 
     public static void registerBlockColors() {
         BlockColors blockColors = Minecraft.getInstance().getBlockColors();
         DataUtils.registerBlockColor(blockColors, (x, world, pos, u) -> world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getDefault(), Arrays.asList(FruitfulBlocks.APPLE_OAK_LEAVES));
+        DataUtils.registerBlockColor(blockColors, (x, world, pos, u) -> FoliageColors.getBirch(), Arrays.asList(FruitfulBlocks.PEACH_BIRCH_LEAVES));
 
         ItemColors itemColors = Minecraft.getInstance().getItemColors();
         DataUtils.registerBlockItemColor(itemColors, (color, items) -> FoliageColors.getDefault(), Arrays.asList(FruitfulBlocks.APPLE_OAK_LEAVES));
+        DataUtils.registerBlockItemColor(itemColors, (color, items) -> FoliageColors.getBirch(), Arrays.asList(FruitfulBlocks.PEACH_BIRCH_LEAVES));
     }
 }
