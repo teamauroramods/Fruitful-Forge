@@ -1,6 +1,7 @@
 package com.epic312.fruitful.core.other;
 
 import com.epic312.fruitful.core.registry.FruitfulBlocks;
+import com.epic312.fruitful.core.registry.FruitfulItems;
 import com.teamabnormals.abnormals_core.core.utils.DataUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
@@ -16,6 +17,12 @@ public class FruitfulBlockData {
     public static void registerCompostables() {
         DataUtils.registerCompostable(0.95f, FruitfulBlocks.APPLE_OAK_LEAVES.get());
         DataUtils.registerCompostable(0.95f, FruitfulBlocks.PEACH_BIRCH_LEAVES.get());
+
+        DataUtils.registerCompostable(0.65f, FruitfulItems.PEACH.get());
+
+        DataUtils.registerCompostable(1f, FruitfulBlocks.PEACH_CRATE.get());
+
+        DataUtils.registerCompostable(1f, FruitfulItems.APPLE_PIE.get());
     }
 
     public static void registerFlammables() {
