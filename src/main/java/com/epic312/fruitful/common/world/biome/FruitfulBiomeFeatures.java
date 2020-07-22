@@ -26,6 +26,10 @@ public class FruitfulBiomeFeatures {
     public static BlockState OAK_LEAVES = Blocks.OAK_LEAVES.getDefaultState();
     public static BlockState APPLE_OAK_LEAVES = FruitfulBlocks.APPLE_OAK_LEAVES.get().getDefaultState();
 
+    public static BlockState BIRCH_LOG = Blocks.BIRCH_LOG.getDefaultState();
+    public static BlockState BIRCH_LEAVES = Blocks.BIRCH_LEAVES.getDefaultState();
+    public static BlockState PEACH_BIRCH_LEAVES = FruitfulBlocks.PEACH_BIRCH_LEAVES.get().getDefaultState();
+
     private static Random probeRand = new Random();
     private static BlockPos probePos = new BlockPos(0,0,0);
 
@@ -77,10 +81,44 @@ public class FruitfulBiomeFeatures {
                     new TwoLayerFeature(0, 0, 0, OptionalInt.of(4))))
             .func_236700_a_().func_236702_a_(Heightmap.Type.MOTION_BLOCKING).build();
 
+    public static final BaseTreeFeatureConfig PEACH_BIRCH_TREE_CONFIG = (
+            new BaseTreeFeatureConfig.Builder(
+                    new SimpleBlockStateProvider(BIRCH_LOG),
+                    (new WeightedBlockStateProvider()).addWeightedBlockstate(BIRCH_LEAVES,149).addWeightedBlockstate(PEACH_BIRCH_LEAVES,1),
+                    new BlobFoliagePlacer(2, 0, 0, 0, 3),
+                    new StraightTrunkPlacer(5, 2, 0),
+                    new TwoLayerFeature(1, 0, 1)))
+            .func_236700_a_().build();
+
+    public static final BaseTreeFeatureConfig PEACH_BIRCH_TREE_CONFIG_1 = PEACH_BIRCH_TREE_CONFIG.func_236685_a_(ImmutableList.of(FruitfulBeehiveDecorator1));
+    public static final BaseTreeFeatureConfig PEACH_BIRCH_TREE_CONFIG_2 = PEACH_BIRCH_TREE_CONFIG.func_236685_a_(ImmutableList.of(FruitfulBeehiveDecorator2));
+    public static final BaseTreeFeatureConfig PEACH_BIRCH_TREE_WITH_MORE_BEEHIVES_CONFIG = PEACH_BIRCH_TREE_CONFIG.func_236685_a_(ImmutableList.of(FruitfulBeehiveDecorator3));
+
+    public static final BaseTreeFeatureConfig TALL_PEACH_BIRCH_TREE_CONFIG = (
+            new BaseTreeFeatureConfig.Builder(
+                    new SimpleBlockStateProvider(BIRCH_LOG),
+                    (new WeightedBlockStateProvider()).addWeightedBlockstate(BIRCH_LEAVES,149).addWeightedBlockstate(PEACH_BIRCH_LEAVES,1),
+                    new BlobFoliagePlacer(2, 0, 0, 0, 3),
+                    new StraightTrunkPlacer(5, 2, 6),
+                    new TwoLayerFeature(1, 0, 1)))
+            .func_236700_a_().func_236703_a_(ImmutableList.of(FruitfulBeehiveDecorator1)).build();
+
+    public static final BaseTreeFeatureConfig DENSE_PEACH_BIRCH_TREE_CONFIG = (
+            new BaseTreeFeatureConfig.Builder(
+                    new SimpleBlockStateProvider(BIRCH_LOG),
+                    (new WeightedBlockStateProvider()).addWeightedBlockstate(BIRCH_LEAVES,10).addWeightedBlockstate(PEACH_BIRCH_LEAVES,2),
+                    new BlobFoliagePlacer(2, 0, 0, 0, 3),
+                    new StraightTrunkPlacer(5, 2, 0),
+                    new TwoLayerFeature(1, 0, 1)))
+            .func_236700_a_().build();
+
     public static void addFruitTrees(Biome biome) {
         List<ConfiguredFeature<?, ?>> list = biome.getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION);
         List<ConfiguredFeature<?, ?>> toRemove = new ArrayList<>();
         int listSize = list.size();
+        if (biome == Biomes.BIRCH_FOREST) {
+            int i2 = 1;
+        }
         for (int i = 0; i < listSize; i++) {
             ConfiguredFeature<?, ?> configuredFeature = list.get(i);
             if (configuredFeature.config instanceof DecoratedFeatureConfig) {
@@ -106,6 +144,16 @@ public class FruitfulBiomeFeatures {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_FANCY_TREE_CONFIG_2), crfl.chance));
                             } else if (crfl.feature.config == DefaultBiomeFeatures.FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG), crfl.chance));
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.BIRCH_TREE_CONFIG) {
+                                tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(PEACH_BIRCH_TREE_CONFIG), crfl.chance));
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230129_h_) {
+                                tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(PEACH_BIRCH_TREE_CONFIG_1), crfl.chance));
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230135_r_) {
+                                tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(PEACH_BIRCH_TREE_CONFIG_2), crfl.chance));
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230136_s_) {
+                                tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(PEACH_BIRCH_TREE_WITH_MORE_BEEHIVES_CONFIG), crfl.chance));
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230130_i_) {
+                                tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(TALL_PEACH_BIRCH_TREE_CONFIG), crfl.chance));
                             } else {
                                 tempFeatures.add(crfl);
                             }
@@ -133,6 +181,16 @@ public class FruitfulBiomeFeatures {
                             tempDefCfg = APPLE_FANCY_TREE_CONFIG_2;
                         } else if (treeCfg == DefaultBiomeFeatures.FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG) {
                             tempDefCfg = APPLE_FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG;
+                        } else if (treeCfg == DefaultBiomeFeatures.BIRCH_TREE_CONFIG) {
+                            tempDefCfg = PEACH_BIRCH_TREE_CONFIG;
+                        } else if (treeCfg == DefaultBiomeFeatures.field_230129_h_) {
+                            tempDefCfg = PEACH_BIRCH_TREE_CONFIG_1;
+                        } else if (treeCfg == DefaultBiomeFeatures.field_230135_r_) {
+                            tempDefCfg = PEACH_BIRCH_TREE_CONFIG_2;
+                        } else if (treeCfg == DefaultBiomeFeatures.field_230136_s_) {
+                            tempDefCfg = PEACH_BIRCH_TREE_WITH_MORE_BEEHIVES_CONFIG;
+                        } else if (treeCfg == DefaultBiomeFeatures.field_230130_i_) {
+                            tempDefCfg = TALL_PEACH_BIRCH_TREE_CONFIG;
                         }
                         ConfiguredFeature<?,?> tempDef = new ConfiguredFeature<BaseTreeFeatureConfig, Feature<BaseTreeFeatureConfig>>((Feature<BaseTreeFeatureConfig>) tree.defaultFeature.feature, tempDefCfg);
                         ConfiguredFeature<DecoratedFeatureConfig, ?> tempFeature = new ConfiguredFeature<DecoratedFeatureConfig, DecoratedFeature>(
@@ -151,6 +209,45 @@ public class FruitfulBiomeFeatures {
                         ));
                         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, tempFeature);
                     }
+                    toRemove.add(configuredFeature);
+                } else if (decorated.feature.config instanceof BaseTreeFeatureConfig) {
+                    BaseTreeFeatureConfig tempDefCfg = (BaseTreeFeatureConfig) decorated.feature.config;
+                    BaseTreeFeatureConfig treeCfg = (BaseTreeFeatureConfig) decorated.feature.config;
+                    if (treeCfg == DefaultBiomeFeatures.OAK_TREE_CONFIG) {
+                        tempDefCfg = APPLE_OAK_TREE_CONFIG;
+                    } else if (treeCfg == DefaultBiomeFeatures.field_230132_o_) {
+                        tempDefCfg = APPLE_OAK_TREE_CONFIG_1;
+                    } else if (treeCfg == DefaultBiomeFeatures.field_230133_p_) {
+                        tempDefCfg = APPLE_OAK_TREE_CONFIG_2;
+                    } else if (treeCfg == DefaultBiomeFeatures.OAK_TREE_WITH_MORE_BEEHIVES_CONFIG) {
+                        tempDefCfg = APPLE_OAK_TREE_WITH_MORE_BEEHIVES_CONFIG;
+                    } else if (treeCfg == DefaultBiomeFeatures.FANCY_TREE_CONFIG) {
+                        tempDefCfg = APPLE_FANCY_TREE_CONFIG;
+                    } else if (treeCfg == DefaultBiomeFeatures.field_230131_m_) {
+                        tempDefCfg = APPLE_FANCY_TREE_CONFIG_1;
+                    } else if (treeCfg == DefaultBiomeFeatures.field_230134_q_) {
+                        tempDefCfg = APPLE_FANCY_TREE_CONFIG_2;
+                    } else if (treeCfg == DefaultBiomeFeatures.FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG) {
+                        tempDefCfg = APPLE_FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG;
+                    } else if (treeCfg == DefaultBiomeFeatures.BIRCH_TREE_CONFIG) {
+                        tempDefCfg = PEACH_BIRCH_TREE_CONFIG;
+                    } else if (treeCfg == DefaultBiomeFeatures.field_230129_h_) {
+                        tempDefCfg = PEACH_BIRCH_TREE_CONFIG_1;
+                    } else if (treeCfg == DefaultBiomeFeatures.field_230135_r_) {
+                        tempDefCfg = PEACH_BIRCH_TREE_CONFIG_2;
+                    } else if (treeCfg == DefaultBiomeFeatures.field_230136_s_) {
+                        tempDefCfg = PEACH_BIRCH_TREE_WITH_MORE_BEEHIVES_CONFIG;
+                    } else if (treeCfg == DefaultBiomeFeatures.field_230130_i_) {
+                        tempDefCfg = TALL_PEACH_BIRCH_TREE_CONFIG;
+                    }
+                    ConfiguredFeature<DecoratedFeatureConfig, ?> tempFeature = new ConfiguredFeature<DecoratedFeatureConfig, DecoratedFeature>(
+                            (DecoratedFeature) configuredFeature.feature, new DecoratedFeatureConfig(
+                                new ConfiguredFeature<BaseTreeFeatureConfig, Feature<BaseTreeFeatureConfig>>(
+                                        (Feature<BaseTreeFeatureConfig>) decorated.feature.feature,
+                                        tempDefCfg
+                                ), decorated.decorator
+                    ));
+                    biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, tempFeature);
                     toRemove.add(configuredFeature);
                 }
             }

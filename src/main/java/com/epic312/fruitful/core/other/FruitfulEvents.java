@@ -38,6 +38,20 @@ public class FruitfulEvents {
                 if (!configuredFeature.func_236265_a_(world, world.func_241112_a_(), world.getChunkProvider().getChunkGenerator(), rand, pos)) {
                     world.setBlockState(pos, state);
                 }
+            } else if (state.getBlock() == Blocks.BIRCH_SAPLING) {
+                event.setResult(Event.Result.DENY);
+                world.setBlockState(pos, Blocks.AIR.getDefaultState());
+                ConfiguredFeature<BaseTreeFeatureConfig, ?> configuredFeature;
+                if (world.getBlockState(pos.down()).getBlock() == Blocks.PODZOL) {
+                    // field_236291_c_ = TREE, currently unmapped
+                    configuredFeature = Feature.field_236291_c_.withConfiguration(FruitfulBiomeFeatures.DENSE_PEACH_BIRCH_TREE_CONFIG);
+                } else {
+                    configuredFeature = Feature.field_236291_c_.withConfiguration(FruitfulBiomeFeatures.PEACH_BIRCH_TREE_CONFIG);
+                }
+                // func_236265_a_ = place, currently unmapped
+                if (!configuredFeature.func_236265_a_(world, world.func_241112_a_(), world.getChunkProvider().getChunkGenerator(), rand, pos)) {
+                    world.setBlockState(pos, state);
+                }
             }
         }
     }
