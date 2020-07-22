@@ -16,4 +16,5 @@ public class FruitfulBlocks {
     public static final RegistryHelper HELPER = Fruitful.REGISTRY_HELPER;
 
     public static final RegistryObject<Block> APPLE_OAK_LEAVES = HELPER.createBlock("apple_oak_leaves", ()->new AbnormalsLeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES).notSolid().harvestTool(ToolType.HOE)), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PEACH_BIRCH_LEAVES = HELPER.createBlock("peach_birch_leaves", ()->new AbnormalsLeavesBlock(Block.Properties.from(Blocks.BIRCH_LEAVES).notSolid().harvestTool(ToolType.HOE)), ItemGroup.DECORATIONS);
 }
