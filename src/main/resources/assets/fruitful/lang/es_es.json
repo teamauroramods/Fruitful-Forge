@@ -1,5 +1,11 @@
 {
   "block.fruitful.apple_oak_leaves": "Hojas de roble con manzanas",
+  "block.fruitful.peach_birch_leaves": "Hojas de abedul con melocotones",
 
-  "item.fruitful.apple_pie": "Tarta de manzana"
+  "block.fruitful.peach_crate": "Cajón de melocotones",
+
+  "item.fruitful.peach": "Melocotón",
+
+  "item.fruitful.apple_pie": "Pastel de manzana",
+  "item.fruitful.peach_cobbler": "Postre de melocotones"
 }
