@@ -1,11 +1,15 @@
 {
   "block.fruitful.apple_oak_leaves": "Hojas de roble con manzanas",
   "block.fruitful.peach_birch_leaves": "Hojas de abedul con duraznos",
+  "block.fruitful.orange_jungle_leaves": "Hojas de jungla con naranjas",
 
   "block.fruitful.peach_crate": "Cajón de duraznos",
+  "block.fruitful.orange_crate": "Cajón de naranjas",
 
   "item.fruitful.peach": "Durazno",
+  "item.fruitful.orange": "Naranja",
 
   "item.fruitful.apple_pie": "Pastel de manzana",
-  "item.fruitful.peach_cobbler": "Postre de duraznos"
+  "item.fruitful.peach_cobbler": "Postre de duraznos",
+  "item.fruitful.orange_juice": "Jugo de naranja"
 }
