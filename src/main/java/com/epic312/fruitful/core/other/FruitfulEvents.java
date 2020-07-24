@@ -53,18 +53,25 @@ public class FruitfulEvents {
                     world.setBlockState(pos, state);
                 }
             } else if (state.getBlock() == Blocks.JUNGLE_SAPLING) {
-                event.setResult(Event.Result.DENY);
-                world.setBlockState(pos, Blocks.AIR.getDefaultState());
-                ConfiguredFeature<BaseTreeFeatureConfig, ?> configuredFeature;
-                if (world.getBlockState(pos.down()).getBlock() == Blocks.PODZOL) {
-                    // field_236291_c_ = TREE, currently unmapped
-                    configuredFeature = Feature.field_236291_c_.withConfiguration(FruitfulBiomeFeatures.DENSE_ORANGE_JUNGLE_TREE_CONFIG);
-                } else {
-                    configuredFeature = Feature.field_236291_c_.withConfiguration(FruitfulBiomeFeatures.ORANGE_JUNGLE_SAPLING_TREE_CONFIG);
-                }
-                // func_236265_a_ = place, currently unmapped
-                if (!configuredFeature.func_236265_a_(world, world.func_241112_a_(), world.getChunkProvider().getChunkGenerator(), rand, pos)) {
-                    world.setBlockState(pos, state);
+                if (
+                        !(world.getBlockState(pos.north()).getBlock() == Blocks.JUNGLE_SAPLING && world.getBlockState(pos.east()).getBlock() == Blocks.JUNGLE_SAPLING && world.getBlockState(pos.north().east()).getBlock() == Blocks.JUNGLE_SAPLING) &&
+                                !(world.getBlockState(pos.north()).getBlock() == Blocks.JUNGLE_SAPLING && world.getBlockState(pos.west()).getBlock() == Blocks.JUNGLE_SAPLING && world.getBlockState(pos.north().west()).getBlock() == Blocks.JUNGLE_SAPLING) &&
+                                !(world.getBlockState(pos.south()).getBlock() == Blocks.JUNGLE_SAPLING && world.getBlockState(pos.east()).getBlock() == Blocks.JUNGLE_SAPLING && world.getBlockState(pos.south().east()).getBlock() == Blocks.JUNGLE_SAPLING) &&
+                                !(world.getBlockState(pos.south()).getBlock() == Blocks.JUNGLE_SAPLING && world.getBlockState(pos.west()).getBlock() == Blocks.JUNGLE_SAPLING && world.getBlockState(pos.south().west()).getBlock() == Blocks.JUNGLE_SAPLING)
+                ) { // structure for large tree does not exist
+                    event.setResult(Event.Result.DENY);
+                    world.setBlockState(pos, Blocks.AIR.getDefaultState());
+                    ConfiguredFeature<BaseTreeFeatureConfig, ?> configuredFeature;
+                    if (world.getBlockState(pos.down()).getBlock() == Blocks.PODZOL) {
+                        // field_236291_c_ = TREE, currently unmapped
+                        configuredFeature = Feature.field_236291_c_.withConfiguration(FruitfulBiomeFeatures.DENSE_ORANGE_JUNGLE_TREE_CONFIG);
+                    } else {
+                        configuredFeature = Feature.field_236291_c_.withConfiguration(FruitfulBiomeFeatures.ORANGE_JUNGLE_SAPLING_TREE_CONFIG);
+                    }
+                    // func_236265_a_ = place, currently unmapped
+                    if (!configuredFeature.func_236265_a_(world, world.func_241112_a_(), world.getChunkProvider().getChunkGenerator(), rand, pos)) {
+                        world.setBlockState(pos, state);
+                    }
                 }
             }
         }
