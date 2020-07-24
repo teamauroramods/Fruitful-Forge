@@ -113,7 +113,7 @@ public class FruitfulBiomeFeatures {
     public static final BaseTreeFeatureConfig DENSE_PEACH_BIRCH_TREE_CONFIG = (
             new BaseTreeFeatureConfig.Builder(
                     new SimpleBlockStateProvider(BIRCH_LOG),
-                    (new WeightedBlockStateProvider()).addWeightedBlockstate(BIRCH_LEAVES,149).addWeightedBlockstate(PEACH_BIRCH_LEAVES,1),
+                    (new WeightedBlockStateProvider()).addWeightedBlockstate(BIRCH_LEAVES,10).addWeightedBlockstate(PEACH_BIRCH_LEAVES,2),
                     new BlobFoliagePlacer(2, 0, 0, 0, 3),
                     new StraightTrunkPlacer(5, 2, 0),
                     new TwoLayerFeature(1, 0, 1)))
