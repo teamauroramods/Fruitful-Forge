@@ -16,6 +16,9 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliageplacer.FancyFoliagePlacer;
 import net.minecraft.world.gen.treedecorator.BeehiveTreeDecorator;
+import net.minecraft.world.gen.treedecorator.CocoaTreeDecorator;
+import net.minecraft.world.gen.treedecorator.LeaveVineTreeDecorator;
+import net.minecraft.world.gen.treedecorator.TrunkVineTreeDecorator;
 import net.minecraft.world.gen.trunkplacer.FancyTrunkPlacer;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 
@@ -29,6 +32,10 @@ public class FruitfulBiomeFeatures {
     public static BlockState BIRCH_LOG = Blocks.BIRCH_LOG.getDefaultState();
     public static BlockState BIRCH_LEAVES = Blocks.BIRCH_LEAVES.getDefaultState();
     public static BlockState PEACH_BIRCH_LEAVES = FruitfulBlocks.PEACH_BIRCH_LEAVES.get().getDefaultState();
+
+    public static BlockState JUNGLE_LOG = Blocks.JUNGLE_LOG.getDefaultState();
+    public static BlockState JUNGLE_LEAVES = Blocks.JUNGLE_LEAVES.getDefaultState();
+    public static BlockState ORANGE_JUNGLE_LEAVES = FruitfulBlocks.ORANGE_JUNGLE_LEAVES.get().getDefaultState();
 
     private static Random probeRand = new Random();
     private static BlockPos probePos = new BlockPos(0,0,0);
@@ -106,9 +113,40 @@ public class FruitfulBiomeFeatures {
     public static final BaseTreeFeatureConfig DENSE_PEACH_BIRCH_TREE_CONFIG = (
             new BaseTreeFeatureConfig.Builder(
                     new SimpleBlockStateProvider(BIRCH_LOG),
-                    (new WeightedBlockStateProvider()).addWeightedBlockstate(BIRCH_LEAVES,10).addWeightedBlockstate(PEACH_BIRCH_LEAVES,2),
+                    (new WeightedBlockStateProvider()).addWeightedBlockstate(BIRCH_LEAVES,149).addWeightedBlockstate(PEACH_BIRCH_LEAVES,1),
                     new BlobFoliagePlacer(2, 0, 0, 0, 3),
                     new StraightTrunkPlacer(5, 2, 0),
+                    new TwoLayerFeature(1, 0, 1)))
+            .func_236700_a_().build();
+
+    public static final BaseTreeFeatureConfig ORANGE_JUNGLE_TREE_CONFIG = (
+            new BaseTreeFeatureConfig.Builder(
+                    new SimpleBlockStateProvider(JUNGLE_LOG),
+                    (new WeightedBlockStateProvider()).addWeightedBlockstate(JUNGLE_LEAVES,99).addWeightedBlockstate(ORANGE_JUNGLE_LEAVES,1),
+                    new BlobFoliagePlacer(2, 0, 0, 0, 3),
+                    new StraightTrunkPlacer(4, 8, 0),
+                    new TwoLayerFeature(1, 0, 1)))
+            .func_236703_a_(ImmutableList.of(
+                    new CocoaTreeDecorator(0.2F),
+                    TrunkVineTreeDecorator.field_236879_b_,
+                    LeaveVineTreeDecorator.field_236871_b_))
+            .func_236700_a_().build();
+
+    public static final BaseTreeFeatureConfig ORANGE_JUNGLE_SAPLING_TREE_CONFIG = (
+            new BaseTreeFeatureConfig.Builder(
+                    new SimpleBlockStateProvider(JUNGLE_LOG),
+                    (new WeightedBlockStateProvider()).addWeightedBlockstate(JUNGLE_LEAVES,99).addWeightedBlockstate(ORANGE_JUNGLE_LEAVES,1),
+                    new BlobFoliagePlacer(2, 0, 0, 0, 3),
+                    new StraightTrunkPlacer(4, 8, 0),
+                    new TwoLayerFeature(1, 0, 1)))
+            .func_236700_a_().build();
+
+    public static final BaseTreeFeatureConfig DENSE_ORANGE_JUNGLE_TREE_CONFIG = (
+            new BaseTreeFeatureConfig.Builder(
+                    new SimpleBlockStateProvider(JUNGLE_LOG),
+                    (new WeightedBlockStateProvider()).addWeightedBlockstate(JUNGLE_LEAVES,8).addWeightedBlockstate(ORANGE_JUNGLE_LEAVES,2),
+                    new BlobFoliagePlacer(2, 0, 0, 0, 3),
+                    new StraightTrunkPlacer(4, 8, 0),
                     new TwoLayerFeature(1, 0, 1)))
             .func_236700_a_().build();
 
@@ -154,6 +192,8 @@ public class FruitfulBiomeFeatures {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(PEACH_BIRCH_TREE_WITH_MORE_BEEHIVES_CONFIG), crfl.chance));
                             } else if (crfl.feature.config == DefaultBiomeFeatures.field_230130_i_) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(TALL_PEACH_BIRCH_TREE_CONFIG), crfl.chance));
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.JUNGLE_TREE_CONFIG) {
+                                tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(ORANGE_JUNGLE_TREE_CONFIG), crfl.chance));
                             } else {
                                 tempFeatures.add(crfl);
                             }
@@ -191,6 +231,8 @@ public class FruitfulBiomeFeatures {
                             tempDefCfg = PEACH_BIRCH_TREE_WITH_MORE_BEEHIVES_CONFIG;
                         } else if (treeCfg == DefaultBiomeFeatures.field_230130_i_) {
                             tempDefCfg = TALL_PEACH_BIRCH_TREE_CONFIG;
+                        } else if (treeCfg == DefaultBiomeFeatures.JUNGLE_TREE_CONFIG) {
+                            tempDefCfg = ORANGE_JUNGLE_TREE_CONFIG;
                         }
                         ConfiguredFeature<?,?> tempDef = new ConfiguredFeature<BaseTreeFeatureConfig, Feature<BaseTreeFeatureConfig>>((Feature<BaseTreeFeatureConfig>) tree.defaultFeature.feature, tempDefCfg);
                         ConfiguredFeature<DecoratedFeatureConfig, ?> tempFeature = new ConfiguredFeature<DecoratedFeatureConfig, DecoratedFeature>(
@@ -239,6 +281,8 @@ public class FruitfulBiomeFeatures {
                         tempDefCfg = PEACH_BIRCH_TREE_WITH_MORE_BEEHIVES_CONFIG;
                     } else if (treeCfg == DefaultBiomeFeatures.field_230130_i_) {
                         tempDefCfg = TALL_PEACH_BIRCH_TREE_CONFIG;
+                    } else if (treeCfg == DefaultBiomeFeatures.JUNGLE_TREE_CONFIG) {
+                        tempDefCfg = ORANGE_JUNGLE_TREE_CONFIG;
                     }
                     ConfiguredFeature<DecoratedFeatureConfig, ?> tempFeature = new ConfiguredFeature<DecoratedFeatureConfig, DecoratedFeature>(
                             (DecoratedFeature) configuredFeature.feature, new DecoratedFeatureConfig(
