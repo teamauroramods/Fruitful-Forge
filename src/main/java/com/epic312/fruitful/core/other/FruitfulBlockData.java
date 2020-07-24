@@ -33,15 +33,18 @@ public class FruitfulBlockData {
     public static void setupRenderLayer() {
         RenderTypeLookup.setRenderLayer(FruitfulBlocks.APPLE_OAK_LEAVES.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(FruitfulBlocks.PEACH_BIRCH_LEAVES.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(FruitfulBlocks.ORANGE_JUNGLE_LEAVES.get(), RenderType.getCutoutMipped());
     }
 
     public static void registerBlockColors() {
         BlockColors blockColors = Minecraft.getInstance().getBlockColors();
         DataUtils.registerBlockColor(blockColors, (x, world, pos, u) -> world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getDefault(), Arrays.asList(FruitfulBlocks.APPLE_OAK_LEAVES));
         DataUtils.registerBlockColor(blockColors, (x, world, pos, u) -> FoliageColors.getBirch(), Arrays.asList(FruitfulBlocks.PEACH_BIRCH_LEAVES));
+        DataUtils.registerBlockColor(blockColors, (x, world, pos, u) -> world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getDefault(), Arrays.asList(FruitfulBlocks.ORANGE_JUNGLE_LEAVES));
 
         ItemColors itemColors = Minecraft.getInstance().getItemColors();
         DataUtils.registerBlockItemColor(itemColors, (color, items) -> FoliageColors.getDefault(), Arrays.asList(FruitfulBlocks.APPLE_OAK_LEAVES));
         DataUtils.registerBlockItemColor(itemColors, (color, items) -> FoliageColors.getBirch(), Arrays.asList(FruitfulBlocks.PEACH_BIRCH_LEAVES));
+        DataUtils.registerBlockItemColor(itemColors, (color, items) -> FoliageColors.getDefault(), Arrays.asList(FruitfulBlocks.ORANGE_JUNGLE_LEAVES));
     }
 }
