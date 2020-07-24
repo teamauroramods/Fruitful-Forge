@@ -17,10 +17,13 @@ public class FruitfulBlockData {
     public static void registerCompostables() {
         DataUtils.registerCompostable(0.95f, FruitfulBlocks.APPLE_OAK_LEAVES.get());
         DataUtils.registerCompostable(0.95f, FruitfulBlocks.PEACH_BIRCH_LEAVES.get());
+        DataUtils.registerCompostable(0.95f, FruitfulBlocks.ORANGE_JUNGLE_LEAVES.get());
 
         DataUtils.registerCompostable(0.65f, FruitfulItems.PEACH.get());
+        DataUtils.registerCompostable(0.65f, FruitfulItems.ORANGE.get());
 
         DataUtils.registerCompostable(1f, FruitfulBlocks.PEACH_CRATE.get());
+        DataUtils.registerCompostable(1f, FruitfulBlocks.ORANGE_CRATE.get());
 
         DataUtils.registerCompostable(1f, FruitfulItems.APPLE_PIE.get());
     }
@@ -28,6 +31,7 @@ public class FruitfulBlockData {
     public static void registerFlammables() {
         DataUtils.registerFlammable(FruitfulBlocks.APPLE_OAK_LEAVES.get(), 30, 60);
         DataUtils.registerFlammable(FruitfulBlocks.PEACH_BIRCH_LEAVES.get(), 30, 60);
+        DataUtils.registerFlammable(FruitfulBlocks.ORANGE_JUNGLE_LEAVES.get(), 30, 60);
     }
 
     public static void setupRenderLayer() {
