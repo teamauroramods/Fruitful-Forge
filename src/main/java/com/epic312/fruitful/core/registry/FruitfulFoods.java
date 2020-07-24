@@ -12,4 +12,5 @@ public class FruitfulFoods {
     public static final Food PEACH_COBBLER = (new Food.Builder()).hunger(8).saturation(0.4F).build();
 
     public static final Food ORANGE = (new Food.Builder()).hunger(4).saturation(0.2F).build();
+    public static final Food ORANGE_JUICE = (new Food.Builder()).hunger(3).saturation(0.2F).fastToEat().build();
 }
