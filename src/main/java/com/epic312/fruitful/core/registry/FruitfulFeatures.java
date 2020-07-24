@@ -11,6 +11,8 @@ public class FruitfulFeatures {
     }
 
     public static void generate(Biome biome) {
-        FruitfulBiomeFeatures.addFruitTrees(biome);
+        if (!biome.getRegistryName().getNamespace().equals("biomesoplenty")) {
+            FruitfulBiomeFeatures.addFruitTrees(biome);
+        }
     }
 }
