@@ -1,8 +1,8 @@
 package com.epic312.fruitful.core.registry;
 
 import com.epic312.fruitful.core.Fruitful;
-import com.teamabnormals.abnormals_core.common.blocks.wood.AbnormalsLeavesBlock;
-import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
+import com.minecraftabnormals.abnormals_core.common.blocks.wood.AbnormalsLeavesBlock;
+import com.minecraftabnormals.abnormals_core.core.utils.RegistryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;

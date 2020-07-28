@@ -2,7 +2,7 @@ package com.epic312.fruitful.core.registry;
 
 import com.epic312.fruitful.common.item.OrangeJuiceItem;
 import com.epic312.fruitful.core.Fruitful;
-import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
+import com.minecraftabnormals.abnormals_core.core.utils.RegistryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.SoupItem;

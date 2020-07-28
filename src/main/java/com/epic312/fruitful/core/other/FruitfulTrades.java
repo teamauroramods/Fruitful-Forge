@@ -2,7 +2,7 @@ package com.epic312.fruitful.core.other;
 
 import com.epic312.fruitful.core.Fruitful;
 import com.epic312.fruitful.core.registry.FruitfulItems;
-import com.teamabnormals.abnormals_core.core.utils.TradeUtils;
+import com.minecraftabnormals.abnormals_core.core.utils.TradeUtils;
 import net.minecraft.entity.merchant.villager.VillagerProfession;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
