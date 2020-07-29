@@ -3,7 +3,7 @@ package com.epic312.fruitful.core;
 import com.epic312.fruitful.core.other.FruitfulBlockData;
 import com.epic312.fruitful.core.other.FruitfulEvents;
 import com.epic312.fruitful.core.registry.FruitfulFeatures;
-import com.minecraftabnormals.abnormals_core.core.utils.RegistryHelper;
+import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;

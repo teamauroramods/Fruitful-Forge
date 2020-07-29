@@ -2,7 +2,7 @@ package com.epic312.fruitful.core.other;
 
 import com.epic312.fruitful.core.registry.FruitfulBlocks;
 import com.epic312.fruitful.core.registry.FruitfulItems;
-import com.minecraftabnormals.abnormals_core.core.utils.DataUtils;
+import com.teamabnormals.abnormals_core.core.utils.DataUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
