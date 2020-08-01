@@ -55,4 +55,9 @@ public class OrangeJuiceItem extends Item {
     public UseAction getUseAction(ItemStack stack) {
         return UseAction.DRINK;
     }
+
+    @Override
+    public SoundEvent getEatSound() {
+        return SoundEvents.ENTITY_GENERIC_DRINK;
+    }
 }
