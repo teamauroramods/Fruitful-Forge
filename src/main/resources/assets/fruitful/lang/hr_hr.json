@@ -1,0 +1,15 @@
+{
+    "block.fruitful.apple_oak_leaves": "Jabučni listovi hrasta",
+    "block.fruitful.peach_birch_leaves": "Breskvasti listovi breze",
+    "block.fruitful.orange_jungle_leaves": "Narančini listovi džungle",
+  
+    "block.fruitful.peach_crate": "Sanduk breskvi",
+    "block.fruitful.orange_crate": "Sanduk naranči",
+  
+    "item.fruitful.peach": "Breskva",
+    "item.fruitful.orange": "Naranča",
+  
+    "item.fruitful.apple_pie": "Pita od jabuka",
+    "item.fruitful.peach_cobbler": "Pita od breskvi",
+    "item.fruitful.orange_juice": "Sok od naranče"
+  }
