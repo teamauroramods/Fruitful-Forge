@@ -3,6 +3,7 @@ package com.epic312.fruitful.core.registry;
 import com.epic312.fruitful.core.Fruitful;
 import com.teamabnormals.abnormals_core.common.blocks.wood.AbnormalsLeavesBlock;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
@@ -21,6 +22,8 @@ public class FruitfulBlocks {
     public static final RegistryObject<Block> APPLE_OAK_LEAVES = HELPER.createBlock("apple_oak_leaves", ()->new AbnormalsLeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES).notSolid().harvestTool(ToolType.HOE)), ItemGroup.DECORATIONS);
     public static final RegistryObject<Block> PEACH_BIRCH_LEAVES = HELPER.createBlock("peach_birch_leaves", ()->new AbnormalsLeavesBlock(Block.Properties.from(Blocks.BIRCH_LEAVES).notSolid().harvestTool(ToolType.HOE)), ItemGroup.DECORATIONS);
     public static final RegistryObject<Block> ORANGE_JUNGLE_LEAVES = HELPER.createBlock("orange_jungle_leaves", ()->new AbnormalsLeavesBlock(Block.Properties.from(Blocks.JUNGLE_LEAVES).notSolid().harvestTool(ToolType.HOE)), ItemGroup.DECORATIONS);
+
+    public static final RegistryObject<Block> CHERRY_SAKURA_LEAVES = HELPER.createCompatBlock("hanami", "cherry_sakura_leaves", ()->new AbnormalsLeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES).notSolid().harvestTool(ToolType.HOE)), ItemGroup.DECORATIONS);
 
     public static final RegistryObject<Block> PEACH_CRATE = HELPER.createCompatBlock("quark", "peach_crate", () -> new Block(Block.Properties.create(Material.WOOD, MaterialColor.PURPLE).hardnessAndResistance(1.5F).sound(SoundType.WOOD)), ItemGroup.DECORATIONS);
     public static final RegistryObject<Block> ORANGE_CRATE = HELPER.createCompatBlock("quark", "orange_crate", () -> new Block(Block.Properties.create(Material.WOOD, MaterialColor.PURPLE).hardnessAndResistance(1.5F).sound(SoundType.WOOD)), ItemGroup.DECORATIONS);
