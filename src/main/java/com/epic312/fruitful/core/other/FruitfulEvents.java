@@ -3,6 +3,7 @@ package com.epic312.fruitful.core.other;
 import com.epic312.fruitful.common.world.biome.FruitfulBiomeFeatures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
@@ -10,6 +11,7 @@ import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.SaplingGrowTreeEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -72,6 +74,20 @@ public class FruitfulEvents {
                     if (!configuredFeature.func_236265_a_(world, world.func_241112_a_(), world.getChunkProvider().getChunkGenerator(), rand, pos)) {
                         world.setBlockState(pos, state);
                     }
+                }
+            } else if (state.getBlock().getRegistryName().equals(new ResourceLocation("hanami:sakura_sapling"))) {
+                event.setResult(Event.Result.DENY);
+                world.setBlockState(pos, Blocks.AIR.getDefaultState());
+                ConfiguredFeature<BaseTreeFeatureConfig, ?> configuredFeature;
+                if (world.getBlockState(pos.down()).getBlock() == Blocks.PODZOL) {
+                    // field_236291_c_ = TREE, currently unmapped
+                    configuredFeature = Feature.field_236291_c_.withConfiguration(FruitfulBiomeFeatures.DENSE_PEACH_BIRCH_TREE_CONFIG);
+                } else {
+                    configuredFeature = Feature.field_236291_c_.withConfiguration(FruitfulBiomeFeatures.PEACH_BIRCH_TREE_CONFIG);
+                }
+                // func_236265_a_ = place, currently unmapped
+                if (!configuredFeature.func_236265_a_(world, world.func_241112_a_(), world.getChunkProvider().getChunkGenerator(), rand, pos)) {
+                    world.setBlockState(pos, state);
                 }
             }
         }
