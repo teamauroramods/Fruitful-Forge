@@ -13,7 +13,7 @@ import net.minecraft.world.biome.BiomeColors;
 
 import java.util.Arrays;
 
-public class FruitfulBlockData {
+public class FruitfulData {
     public static void registerCompostables() {
         DataUtils.registerCompostable(0.95f, FruitfulBlocks.APPLE_OAK_LEAVES.get());
         DataUtils.registerCompostable(0.95f, FruitfulBlocks.PEACH_BIRCH_LEAVES.get());

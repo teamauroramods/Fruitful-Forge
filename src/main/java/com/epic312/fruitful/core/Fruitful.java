@@ -1,6 +1,6 @@
 package com.epic312.fruitful.core;
 
-import com.epic312.fruitful.core.other.FruitfulBlockData;
+import com.epic312.fruitful.core.other.FruitfulData;
 import com.epic312.fruitful.core.other.FruitfulEvents;
 import com.epic312.fruitful.core.registry.FruitfulFeatures;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
@@ -47,8 +47,8 @@ public class Fruitful
     private void commonSetup(final FMLCommonSetupEvent event) {
         MinecraftForge.EVENT_BUS.register(new FruitfulEvents());
         DeferredWorkQueue.runLater(() -> {
-            FruitfulBlockData.registerCompostables();
-            FruitfulBlockData.registerFlammables();
+            FruitfulData.registerCompostables();
+            FruitfulData.registerFlammables();
             FruitfulFeatures.generateFeatures();
         });
     }
@@ -56,8 +56,8 @@ public class Fruitful
     @SuppressWarnings("deprecation")
     private void clientSetup(final FMLClientSetupEvent event) {
         DeferredWorkQueue.runLater(() -> {
-            FruitfulBlockData.registerBlockColors();
-            FruitfulBlockData.setupRenderLayer();
+            FruitfulData.registerBlockColors();
+            FruitfulData.setupRenderLayer();
         });
     }
 }

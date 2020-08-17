@@ -22,6 +22,6 @@ public class FruitfulBlocks {
     public static final RegistryObject<Block> PEACH_BIRCH_LEAVES = HELPER.createBlock("peach_birch_leaves", ()->new FruitLeafBlock(Block.Properties.from(Blocks.BIRCH_LEAVES).notSolid().harvestTool(ToolType.HOE), (LeavesBlock)Blocks.BIRCH_LEAVES, ()->FruitfulItems.PEACH.get()), ItemGroup.DECORATIONS);
     public static final RegistryObject<Block> ORANGE_JUNGLE_LEAVES = HELPER.createBlock("orange_jungle_leaves", ()->new FruitLeafBlock(Block.Properties.from(Blocks.JUNGLE_LEAVES).notSolid().harvestTool(ToolType.HOE), (LeavesBlock)Blocks.JUNGLE_LEAVES, ()->FruitfulItems.ORANGE.get()), ItemGroup.DECORATIONS);
 
-    public static final RegistryObject<Block> PEACH_CRATE = HELPER.createCompatBlock("quark", "peach_crate", () -> new Block(Block.Properties.create(Material.WOOD, MaterialColor.PURPLE).hardnessAndResistance(1.5F).sound(SoundType.WOOD)), ItemGroup.DECORATIONS);
-    public static final RegistryObject<Block> ORANGE_CRATE = HELPER.createCompatBlock("quark", "orange_crate", () -> new Block(Block.Properties.create(Material.WOOD, MaterialColor.PURPLE).hardnessAndResistance(1.5F).sound(SoundType.WOOD)), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PEACH_CRATE = HELPER.createCompatBlock("quark", "peach_crate", () -> new Block(Block.Properties.create(Material.WOOD, MaterialColor.ADOBE).hardnessAndResistance(1.5F).sound(SoundType.WOOD)), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> ORANGE_CRATE = HELPER.createCompatBlock("quark", "orange_crate", () -> new Block(Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(1.5F).sound(SoundType.WOOD)), ItemGroup.DECORATIONS);
 }
