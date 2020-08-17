@@ -1,5 +1,6 @@
 package com.epic312.fruitful.common.world.biome;
 
+import com.epic312.fruitful.core.FruitfulConfig;
 import com.epic312.fruitful.core.registry.FruitfulBlocks;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.BlockState;
@@ -154,8 +155,17 @@ public class FruitfulBiomeFeatures {
         List<ConfiguredFeature<?, ?>> list = biome.getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION);
         List<ConfiguredFeature<?, ?>> toRemove = new ArrayList<>();
         int listSize = list.size();
-        if (biome == Biomes.BIRCH_FOREST) {
-            int i2 = 1;
+        boolean apples;
+        boolean peaches;
+        boolean oranges;
+        if (FruitfulConfig.COMMON.whitelist.get()) {
+            apples = FruitfulConfig.COMMON.appleBiomes.get().contains(biome.getRegistryName().toString());
+            peaches = FruitfulConfig.COMMON.peachBiomes.get().contains(biome.getRegistryName().toString());
+            oranges = FruitfulConfig.COMMON.orangeBiomes.get().contains(biome.getRegistryName().toString());
+        } else {
+            apples = !FruitfulConfig.COMMON.appleBiomes.get().contains(biome.getRegistryName().toString());
+            peaches = !FruitfulConfig.COMMON.peachBiomes.get().contains(biome.getRegistryName().toString());
+            oranges = !FruitfulConfig.COMMON.orangeBiomes.get().contains(biome.getRegistryName().toString());
         }
         for (int i = 0; i < listSize; i++) {
             ConfiguredFeature<?, ?> configuredFeature = list.get(i);
@@ -166,33 +176,33 @@ public class FruitfulBiomeFeatures {
                     List<ConfiguredRandomFeatureList<?>> tempFeatures = new ArrayList<>();
                     for (ConfiguredRandomFeatureList crfl : tree.features) {
                         if (crfl.feature.feature instanceof TreeFeature) {
-                            if (crfl.feature.config == DefaultBiomeFeatures.OAK_TREE_CONFIG) {
+                            if (crfl.feature.config == DefaultBiomeFeatures.OAK_TREE_CONFIG && apples) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_OAK_TREE_CONFIG), crfl.chance));
-                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230132_o_) {
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230132_o_ && apples) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_OAK_TREE_CONFIG_1), crfl.chance));
-                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230133_p_) {
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230133_p_ && apples) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_OAK_TREE_CONFIG_2), crfl.chance));
-                            } else if (crfl.feature.config == DefaultBiomeFeatures.OAK_TREE_WITH_MORE_BEEHIVES_CONFIG) {
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.OAK_TREE_WITH_MORE_BEEHIVES_CONFIG && apples) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_OAK_TREE_WITH_MORE_BEEHIVES_CONFIG), crfl.chance));
-                            } else if (crfl.feature.config == DefaultBiomeFeatures.FANCY_TREE_CONFIG) {
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.FANCY_TREE_CONFIG && apples) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_FANCY_TREE_CONFIG), crfl.chance));
-                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230131_m_) {
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230131_m_ && apples) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_FANCY_TREE_CONFIG_1), crfl.chance));
-                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230134_q_) {
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230134_q_ && apples) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_FANCY_TREE_CONFIG_2), crfl.chance));
-                            } else if (crfl.feature.config == DefaultBiomeFeatures.FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG) {
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG && apples) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(APPLE_FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG), crfl.chance));
-                            } else if (crfl.feature.config == DefaultBiomeFeatures.BIRCH_TREE_CONFIG) {
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.BIRCH_TREE_CONFIG && peaches) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(PEACH_BIRCH_TREE_CONFIG), crfl.chance));
-                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230129_h_) {
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230129_h_ && peaches) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(PEACH_BIRCH_TREE_CONFIG_1), crfl.chance));
-                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230135_r_) {
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230135_r_ && peaches) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(PEACH_BIRCH_TREE_CONFIG_2), crfl.chance));
-                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230136_s_) {
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230136_s_ && peaches) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(PEACH_BIRCH_TREE_WITH_MORE_BEEHIVES_CONFIG), crfl.chance));
-                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230130_i_) {
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.field_230130_i_ && peaches) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(TALL_PEACH_BIRCH_TREE_CONFIG), crfl.chance));
-                            } else if (crfl.feature.config == DefaultBiomeFeatures.JUNGLE_TREE_CONFIG) {
+                            } else if (crfl.feature.config == DefaultBiomeFeatures.JUNGLE_TREE_CONFIG && oranges) {
                                 tempFeatures.add(new ConfiguredRandomFeatureList<BaseTreeFeatureConfig>(Feature.field_236291_c_.withConfiguration(ORANGE_JUNGLE_TREE_CONFIG), crfl.chance));
                             } else {
                                 tempFeatures.add(crfl);
@@ -205,33 +215,33 @@ public class FruitfulBiomeFeatures {
                         BaseTreeFeatureConfig tempDefCfg = (BaseTreeFeatureConfig) tree.defaultFeature.config;
                         //if (((BaseTreeFeatureConfig) tree.defaultFeature.config).leavesProvider.getBlockState(probeRand, probePos).getBlock() == Blocks.OAK_LEAVES) {
                         BaseTreeFeatureConfig treeCfg = (BaseTreeFeatureConfig) tree.defaultFeature.config;
-                        if (treeCfg == DefaultBiomeFeatures.OAK_TREE_CONFIG) {
+                        if (treeCfg == DefaultBiomeFeatures.OAK_TREE_CONFIG && apples) {
                             tempDefCfg = APPLE_OAK_TREE_CONFIG;
-                        } else if (treeCfg == DefaultBiomeFeatures.field_230132_o_) {
+                        } else if (treeCfg == DefaultBiomeFeatures.field_230132_o_ && apples) {
                             tempDefCfg = APPLE_OAK_TREE_CONFIG_1;
-                        } else if (treeCfg == DefaultBiomeFeatures.field_230133_p_) {
+                        } else if (treeCfg == DefaultBiomeFeatures.field_230133_p_ && apples) {
                             tempDefCfg = APPLE_OAK_TREE_CONFIG_2;
-                        } else if (treeCfg == DefaultBiomeFeatures.OAK_TREE_WITH_MORE_BEEHIVES_CONFIG) {
+                        } else if (treeCfg == DefaultBiomeFeatures.OAK_TREE_WITH_MORE_BEEHIVES_CONFIG && apples) {
                             tempDefCfg = APPLE_OAK_TREE_WITH_MORE_BEEHIVES_CONFIG;
-                        } else if (treeCfg == DefaultBiomeFeatures.FANCY_TREE_CONFIG) {
+                        } else if (treeCfg == DefaultBiomeFeatures.FANCY_TREE_CONFIG && apples) {
                             tempDefCfg = APPLE_FANCY_TREE_CONFIG;
-                        } else if (treeCfg == DefaultBiomeFeatures.field_230131_m_) {
+                        } else if (treeCfg == DefaultBiomeFeatures.field_230131_m_ && apples) {
                             tempDefCfg = APPLE_FANCY_TREE_CONFIG_1;
-                        } else if (treeCfg == DefaultBiomeFeatures.field_230134_q_) {
+                        } else if (treeCfg == DefaultBiomeFeatures.field_230134_q_ && apples) {
                             tempDefCfg = APPLE_FANCY_TREE_CONFIG_2;
-                        } else if (treeCfg == DefaultBiomeFeatures.FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG) {
+                        } else if (treeCfg == DefaultBiomeFeatures.FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG && apples) {
                             tempDefCfg = APPLE_FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG;
-                        } else if (treeCfg == DefaultBiomeFeatures.BIRCH_TREE_CONFIG) {
+                        } else if (treeCfg == DefaultBiomeFeatures.BIRCH_TREE_CONFIG && peaches) {
                             tempDefCfg = PEACH_BIRCH_TREE_CONFIG;
-                        } else if (treeCfg == DefaultBiomeFeatures.field_230129_h_) {
+                        } else if (treeCfg == DefaultBiomeFeatures.field_230129_h_ && peaches) {
                             tempDefCfg = PEACH_BIRCH_TREE_CONFIG_1;
-                        } else if (treeCfg == DefaultBiomeFeatures.field_230135_r_) {
+                        } else if (treeCfg == DefaultBiomeFeatures.field_230135_r_ && peaches) {
                             tempDefCfg = PEACH_BIRCH_TREE_CONFIG_2;
-                        } else if (treeCfg == DefaultBiomeFeatures.field_230136_s_) {
+                        } else if (treeCfg == DefaultBiomeFeatures.field_230136_s_ && peaches) {
                             tempDefCfg = PEACH_BIRCH_TREE_WITH_MORE_BEEHIVES_CONFIG;
-                        } else if (treeCfg == DefaultBiomeFeatures.field_230130_i_) {
+                        } else if (treeCfg == DefaultBiomeFeatures.field_230130_i_ && peaches) {
                             tempDefCfg = TALL_PEACH_BIRCH_TREE_CONFIG;
-                        } else if (treeCfg == DefaultBiomeFeatures.JUNGLE_TREE_CONFIG) {
+                        } else if (treeCfg == DefaultBiomeFeatures.JUNGLE_TREE_CONFIG && oranges) {
                             tempDefCfg = ORANGE_JUNGLE_TREE_CONFIG;
                         }
                         ConfiguredFeature<?,?> tempDef = new ConfiguredFeature<BaseTreeFeatureConfig, Feature<BaseTreeFeatureConfig>>((Feature<BaseTreeFeatureConfig>) tree.defaultFeature.feature, tempDefCfg);
@@ -255,33 +265,33 @@ public class FruitfulBiomeFeatures {
                 } else if (decorated.feature.config instanceof BaseTreeFeatureConfig) {
                     BaseTreeFeatureConfig tempDefCfg = (BaseTreeFeatureConfig) decorated.feature.config;
                     BaseTreeFeatureConfig treeCfg = (BaseTreeFeatureConfig) decorated.feature.config;
-                    if (treeCfg == DefaultBiomeFeatures.OAK_TREE_CONFIG) {
+                    if (treeCfg == DefaultBiomeFeatures.OAK_TREE_CONFIG && apples) {
                         tempDefCfg = APPLE_OAK_TREE_CONFIG;
-                    } else if (treeCfg == DefaultBiomeFeatures.field_230132_o_) {
+                    } else if (treeCfg == DefaultBiomeFeatures.field_230132_o_ && apples) {
                         tempDefCfg = APPLE_OAK_TREE_CONFIG_1;
-                    } else if (treeCfg == DefaultBiomeFeatures.field_230133_p_) {
+                    } else if (treeCfg == DefaultBiomeFeatures.field_230133_p_ && apples) {
                         tempDefCfg = APPLE_OAK_TREE_CONFIG_2;
-                    } else if (treeCfg == DefaultBiomeFeatures.OAK_TREE_WITH_MORE_BEEHIVES_CONFIG) {
+                    } else if (treeCfg == DefaultBiomeFeatures.OAK_TREE_WITH_MORE_BEEHIVES_CONFIG && apples) {
                         tempDefCfg = APPLE_OAK_TREE_WITH_MORE_BEEHIVES_CONFIG;
-                    } else if (treeCfg == DefaultBiomeFeatures.FANCY_TREE_CONFIG) {
+                    } else if (treeCfg == DefaultBiomeFeatures.FANCY_TREE_CONFIG && apples) {
                         tempDefCfg = APPLE_FANCY_TREE_CONFIG;
-                    } else if (treeCfg == DefaultBiomeFeatures.field_230131_m_) {
+                    } else if (treeCfg == DefaultBiomeFeatures.field_230131_m_ && apples) {
                         tempDefCfg = APPLE_FANCY_TREE_CONFIG_1;
-                    } else if (treeCfg == DefaultBiomeFeatures.field_230134_q_) {
+                    } else if (treeCfg == DefaultBiomeFeatures.field_230134_q_ && apples) {
                         tempDefCfg = APPLE_FANCY_TREE_CONFIG_2;
-                    } else if (treeCfg == DefaultBiomeFeatures.FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG) {
+                    } else if (treeCfg == DefaultBiomeFeatures.FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG && apples) {
                         tempDefCfg = APPLE_FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG;
-                    } else if (treeCfg == DefaultBiomeFeatures.BIRCH_TREE_CONFIG) {
+                    } else if (treeCfg == DefaultBiomeFeatures.BIRCH_TREE_CONFIG && peaches) {
                         tempDefCfg = PEACH_BIRCH_TREE_CONFIG;
-                    } else if (treeCfg == DefaultBiomeFeatures.field_230129_h_) {
+                    } else if (treeCfg == DefaultBiomeFeatures.field_230129_h_ && peaches) {
                         tempDefCfg = PEACH_BIRCH_TREE_CONFIG_1;
-                    } else if (treeCfg == DefaultBiomeFeatures.field_230135_r_) {
+                    } else if (treeCfg == DefaultBiomeFeatures.field_230135_r_ && peaches) {
                         tempDefCfg = PEACH_BIRCH_TREE_CONFIG_2;
-                    } else if (treeCfg == DefaultBiomeFeatures.field_230136_s_) {
+                    } else if (treeCfg == DefaultBiomeFeatures.field_230136_s_ && peaches) {
                         tempDefCfg = PEACH_BIRCH_TREE_WITH_MORE_BEEHIVES_CONFIG;
-                    } else if (treeCfg == DefaultBiomeFeatures.field_230130_i_) {
+                    } else if (treeCfg == DefaultBiomeFeatures.field_230130_i_ && peaches) {
                         tempDefCfg = TALL_PEACH_BIRCH_TREE_CONFIG;
-                    } else if (treeCfg == DefaultBiomeFeatures.JUNGLE_TREE_CONFIG) {
+                    } else if (treeCfg == DefaultBiomeFeatures.JUNGLE_TREE_CONFIG && oranges) {
                         tempDefCfg = ORANGE_JUNGLE_TREE_CONFIG;
                     }
                     ConfiguredFeature<DecoratedFeatureConfig, ?> tempFeature = new ConfiguredFeature<DecoratedFeatureConfig, DecoratedFeature>(
