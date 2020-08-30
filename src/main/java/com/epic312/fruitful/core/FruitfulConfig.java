@@ -53,7 +53,7 @@ public class FruitfulConfig {
     public static final Common COMMON;
     static {
         final Pair<Common, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Common::new);
-        COMMON_SPEC = specPair.getRight();;
+        COMMON_SPEC = specPair.getRight();
         COMMON = specPair.getLeft();
     }
 }
