@@ -1,0 +1,15 @@
+{
+  "block.fruitful.apple_oak_leaves": "Folhas de carvalho com maçãs",
+  "block.fruitful.peach_birch_leaves": "Folhas de bétula com pêssegos",
+  "block.fruitful.orange_jungle_leaves": "Folhas da selva com laranjas",
+
+  "block.fruitful.peach_crate": "Caixa de pêssegos",
+  "block.fruitful.orange_crate": "Caixa de laranjas",
+
+  "item.fruitful.peach": "Pêssego",
+  "item.fruitful.orange": "Laranja",
+
+  "item.fruitful.apple_pie": "Torta de maçã",
+  "item.fruitful.peach_cobbler": "Sapateiro de pêssego",
+  "item.fruitful.orange_juice": "Suco de laranja"
+}
