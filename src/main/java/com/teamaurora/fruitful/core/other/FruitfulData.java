@@ -25,7 +25,7 @@ public class FruitfulData {
         DataUtils.registerCompostable(1f, FruitfulBlocks.PEACH_CRATE.get());
         DataUtils.registerCompostable(1f, FruitfulBlocks.ORANGE_CRATE.get());
 
-        DataUtils.registerCompostable(1f, FruitfulItems.APPLE_PIE.get());
+        DataUtils.registerCompostable(1f, FruitfulItems.APPLE_CRUMBLE.get());
     }
 
     public static void registerFlammables() {

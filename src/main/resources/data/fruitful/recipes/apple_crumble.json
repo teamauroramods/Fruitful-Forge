@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:apple"
+      "item": "minecraft:bowl"
     },
     {
       "item": "minecraft:apple"
@@ -15,6 +15,6 @@
     }
   ],
   "result": {
-    "item": "fruitful:apple_pie"
+    "item": "fruitful:apple_crumble"
   }
 }
