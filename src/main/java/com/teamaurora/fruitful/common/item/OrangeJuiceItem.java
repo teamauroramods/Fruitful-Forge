@@ -1,4 +1,4 @@
-package com.epic312.fruitful.common.item;
+package com.teamaurora.fruitful.common.item;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.LivingEntity;

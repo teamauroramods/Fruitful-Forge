@@ -1,7 +1,7 @@
-package com.epic312.fruitful.core.other;
+package com.teamaurora.fruitful.core.other;
 
-import com.epic312.fruitful.core.registry.FruitfulBlocks;
-import com.epic312.fruitful.core.registry.FruitfulItems;
+import com.teamaurora.fruitful.core.registry.FruitfulBlocks;
+import com.teamaurora.fruitful.core.registry.FruitfulItems;
 import com.teamabnormals.abnormals_core.core.utils.DataUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;

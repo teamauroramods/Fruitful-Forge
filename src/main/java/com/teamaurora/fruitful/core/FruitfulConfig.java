@@ -1,4 +1,4 @@
-package com.epic312.fruitful.core;
+package com.teamaurora.fruitful.core;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;

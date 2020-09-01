@@ -1,6 +1,6 @@
-package com.epic312.fruitful.core.registry;
+package com.teamaurora.fruitful.core.registry;
 
-import com.epic312.fruitful.core.Fruitful;
+import com.teamaurora.fruitful.core.Fruitful;
 import net.minecraft.item.Food;
 import net.minecraftforge.fml.common.Mod;
 

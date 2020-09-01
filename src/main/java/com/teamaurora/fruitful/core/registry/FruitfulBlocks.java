@@ -1,8 +1,7 @@
-package com.epic312.fruitful.core.registry;
+package com.teamaurora.fruitful.core.registry;
 
-import com.epic312.fruitful.common.block.FruitLeafBlock;
-import com.epic312.fruitful.core.Fruitful;
-import com.teamabnormals.abnormals_core.common.blocks.wood.AbnormalsLeavesBlock;
+import com.teamaurora.fruitful.common.block.FruitLeafBlock;
+import com.teamaurora.fruitful.core.Fruitful;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -12,7 +11,6 @@ import net.minecraft.item.Items;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
-import org.graalvm.compiler.core.common.cfg.AbstractBlockBase;
 
 @Mod.EventBusSubscriber(modid = Fruitful.MODID, bus=Mod.EventBusSubscriber.Bus.MOD)
 public class FruitfulBlocks {

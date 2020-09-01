@@ -1,7 +1,7 @@
-package com.epic312.fruitful.core.other;
+package com.teamaurora.fruitful.core.other;
 
-import com.epic312.fruitful.core.Fruitful;
-import com.epic312.fruitful.core.registry.FruitfulItems;
+import com.teamaurora.fruitful.core.Fruitful;
+import com.teamaurora.fruitful.core.registry.FruitfulItems;
 import com.teamabnormals.abnormals_core.core.utils.TradeUtils;
 import net.minecraft.entity.merchant.villager.VillagerProfession;
 import net.minecraftforge.event.village.VillagerTradesEvent;

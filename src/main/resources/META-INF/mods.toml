@@ -25,9 +25,9 @@ displayURL="https://discord.gg/BgE4EpP" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="logo.png" #optional
 # A text field displayed in the mod UI
-credits="Team Aurora" #optional
+# credits="Team Aurora" #optional
 # A text field displayed in the mod UI
-authors="Epic312" #optional
+authors="Team Aurora" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 Improves apples and adds more fruits and foods.

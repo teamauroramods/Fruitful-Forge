@@ -1,13 +1,12 @@
-package com.epic312.fruitful.common.world.biome;
+package com.teamaurora.fruitful.common.world.biome;
 
-import com.epic312.fruitful.core.FruitfulConfig;
-import com.epic312.fruitful.core.registry.FruitfulBlocks;
+import com.teamaurora.fruitful.core.FruitfulConfig;
+import com.teamaurora.fruitful.core.registry.FruitfulBlocks;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.Heightmap;

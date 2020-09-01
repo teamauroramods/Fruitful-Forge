@@ -1,8 +1,8 @@
-package com.epic312.fruitful.core;
+package com.teamaurora.fruitful.core;
 
-import com.epic312.fruitful.core.other.FruitfulData;
-import com.epic312.fruitful.core.other.FruitfulEvents;
-import com.epic312.fruitful.core.registry.FruitfulFeatures;
+import com.teamaurora.fruitful.core.other.FruitfulData;
+import com.teamaurora.fruitful.core.other.FruitfulEvents;
+import com.teamaurora.fruitful.core.registry.FruitfulFeatures;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;

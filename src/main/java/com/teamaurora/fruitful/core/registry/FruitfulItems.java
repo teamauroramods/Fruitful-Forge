@@ -1,7 +1,7 @@
-package com.epic312.fruitful.core.registry;
+package com.teamaurora.fruitful.core.registry;
 
-import com.epic312.fruitful.common.item.OrangeJuiceItem;
-import com.epic312.fruitful.core.Fruitful;
+import com.teamaurora.fruitful.common.item.OrangeJuiceItem;
+import com.teamaurora.fruitful.core.Fruitful;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;

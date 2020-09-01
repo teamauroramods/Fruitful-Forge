@@ -1,14 +1,11 @@
-package com.epic312.fruitful.common.block;
+package com.teamaurora.fruitful.common.block;
 
-import com.epic312.fruitful.core.registry.FruitfulItems;
 import com.teamabnormals.abnormals_core.common.blocks.wood.AbnormalsLeavesBlock;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;

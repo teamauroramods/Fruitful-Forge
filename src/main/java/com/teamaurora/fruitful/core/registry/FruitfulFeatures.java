@@ -1,6 +1,6 @@
-package com.epic312.fruitful.core.registry;
+package com.teamaurora.fruitful.core.registry;
 
-import com.epic312.fruitful.common.world.biome.FruitfulBiomeFeatures;
+import com.teamaurora.fruitful.common.world.biome.FruitfulBiomeFeatures;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.registries.ForgeRegistries;
 
