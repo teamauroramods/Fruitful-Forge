@@ -21,6 +21,7 @@ import net.minecraft.world.gen.treedecorator.LeaveVineTreeDecorator;
 import net.minecraft.world.gen.treedecorator.TrunkVineTreeDecorator;
 import net.minecraft.world.gen.trunkplacer.FancyTrunkPlacer;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
+import net.minecraftforge.fml.ModList;
 
 import java.util.*;
 
@@ -166,6 +167,7 @@ public class FruitfulBiomeFeatures {
             peaches = !FruitfulConfig.COMMON.peachBiomes.get().contains(biome.getRegistryName().toString());
             oranges = !FruitfulConfig.COMMON.orangeBiomes.get().contains(biome.getRegistryName().toString());
         }
+        if (ModList.get().isLoaded("reforested")) peaches = false;
         for (int i = 0; i < listSize; i++) {
             ConfiguredFeature<?, ?> configuredFeature = list.get(i);
             if (configuredFeature.config instanceof DecoratedFeatureConfig) {
