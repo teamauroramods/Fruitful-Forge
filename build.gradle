@@ -18,7 +18,7 @@ apply plugin: 'maven-publish'
 
 version = '1.4.0'
 group = 'com.teamaurora.fruitful' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'fruitful'
+archivesBaseName = 'Fruitful-1.16.1'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
