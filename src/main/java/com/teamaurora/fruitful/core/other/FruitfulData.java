@@ -32,6 +32,9 @@ public class FruitfulData {
         DataUtils.registerFlammable(FruitfulBlocks.APPLE_OAK_LEAVES.get(), 30, 60);
         DataUtils.registerFlammable(FruitfulBlocks.PEACH_BIRCH_LEAVES.get(), 30, 60);
         DataUtils.registerFlammable(FruitfulBlocks.ORANGE_JUNGLE_LEAVES.get(), 30, 60);
+
+        DataUtils.registerFlammable(FruitfulBlocks.PEACH_CRATE.get(), 5, 20);
+        DataUtils.registerFlammable(FruitfulBlocks.ORANGE_CRATE.get(), 5, 20);
     }
 
     public static void setupRenderLayer() {
