@@ -16,7 +16,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.0'
+version = '1.4.0'
 group = 'com.teamaurora.fruitful' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'fruitful'
 
@@ -85,6 +85,20 @@ minecraft {
                 }
             }
         }
+    }
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title": "Fruitful",
+                "Specification-Vendor": "Team Aurora",
+                "Specification-Version": "1",
+                "Implementation-Title": project.name,
+                "Implementation-Version": "${version}",
+                "Implementation-Vendor": "Team Aurora",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
     }
 }
 
