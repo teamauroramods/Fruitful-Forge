@@ -15,7 +15,7 @@ issueTrackerURL="https://github.com/Epic312/Fruitful/issues/" #optional
 # The modid of the mod
 modId="fruitful" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
-version="1.3.0" #mandatory
+version="1.4.0" #mandatory
  # A display name for the mod
 displayName="Fruitful" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
@@ -30,7 +30,7 @@ logoFile="logo.png" #optional
 authors="Team Aurora" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-Improves apples and adds more fruits and foods.
+Apples, peaches, and oranges grow on trees! Featuring new dishes made from each.
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.fruitful]] #optional
