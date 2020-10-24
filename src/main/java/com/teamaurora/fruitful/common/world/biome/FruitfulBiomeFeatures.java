@@ -1,6 +1,7 @@
 package com.teamaurora.fruitful.common.world.biome;
 
 import com.teamaurora.fruitful.core.FruitfulConfig;
+import com.teamaurora.fruitful.core.compatibility.Hanami;
 import com.teamaurora.fruitful.core.registry.FruitfulBlocks;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.BlockState;
@@ -37,6 +38,10 @@ public class FruitfulBiomeFeatures {
     public static BlockState JUNGLE_LOG = Blocks.JUNGLE_LOG.getDefaultState();
     public static BlockState JUNGLE_LEAVES = Blocks.JUNGLE_LEAVES.getDefaultState();
     public static BlockState ORANGE_JUNGLE_LEAVES = FruitfulBlocks.ORANGE_JUNGLE_LEAVES.get().getDefaultState();
+
+    public static BlockState SAKURA_LOG = Hanami.isInstalled() ? Hanami.SAKURA_LOG_BLOCK.getDefaultState() : Blocks.OAK_LOG.getDefaultState();
+    public static BlockState SAKURA_LEAVES = Hanami.isInstalled() ? Hanami.SAKURA_LEAVES_BLOCK.getDefaultState() : Blocks.OAK_LEAVES.getDefaultState();
+    public static BlockState CHERRY_SAKURA_LEAVES = Hanami.isInstalled() ? Hanami.CHERRY_SAKURA_LEAVES_BLOCK.getDefaultState() : FruitfulBlocks.APPLE_OAK_LEAVES.get().getDefaultState();
 
     private static Random probeRand = new Random();
     private static BlockPos probePos = new BlockPos(0,0,0);
@@ -150,6 +155,8 @@ public class FruitfulBiomeFeatures {
                     new StraightTrunkPlacer(4, 8, 0),
                     new TwoLayerFeature(1, 0, 1)))
             .func_236700_a_().build();
+
+
 
     public static void addFruitTrees(Biome biome) {
         List<ConfiguredFeature<?, ?>> list = biome.getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION);

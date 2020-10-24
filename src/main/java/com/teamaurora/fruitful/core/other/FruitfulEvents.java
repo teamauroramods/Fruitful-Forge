@@ -75,7 +75,7 @@ public class FruitfulEvents {
                             world.setBlockState(pos, state);
                         }
                     }
-                } else if (state.getBlock().getRegistryName().equals(new ResourceLocation("hanami:sakura_sapling"))) {
+                }/* else if (state.getBlock().getRegistryName().equals(new ResourceLocation("hanami:sakura_sapling"))) {
                     event.setResult(Event.Result.DENY);
                     world.setBlockState(pos, Blocks.AIR.getDefaultState());
                     ConfiguredFeature<BaseTreeFeatureConfig, ?> configuredFeature;
@@ -89,7 +89,7 @@ public class FruitfulEvents {
                     if (!configuredFeature.func_236265_a_(world, world.func_241112_a_(), world.getChunkProvider().getChunkGenerator(), rand, pos)) {
                         world.setBlockState(pos, state);
                     }
-                }
+                }*/
             }
         }
     }
