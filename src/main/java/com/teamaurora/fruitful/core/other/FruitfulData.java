@@ -15,9 +15,11 @@ import java.util.Arrays;
 public class FruitfulData {
     public static void registerCompostables() {
         DataUtil.registerCompostable(FruitfulBlocks.APPLE_OAK_LEAVES.get(), 0.95f);
-        DataUtil.registerCompostable(FruitfulBlocks.FLOWERING_OAK_LEAVES.get(), 0.95f);
-        DataUtil.registerCompostable(FruitfulBlocks.BUDDING_OAK_LEAVES.get(), 0.95f);
-        DataUtil.registerCompostable(FruitfulBlocks.BLOSSOMING_OAK_LEAVES.get(), 0.95f);
+        DataUtil.registerCompostable(FruitfulBlocks.FLOWERING_OAK_LEAVES.get(), 0.3f);
+        DataUtil.registerCompostable(FruitfulBlocks.BUDDING_OAK_LEAVES.get(), 0.3f);
+        DataUtil.registerCompostable(FruitfulBlocks.BLOSSOMING_OAK_LEAVES.get(), 0.3f);
+
+        DataUtil.registerCompostable(FruitfulBlocks.FLOWERING_OAK_SAPLING.get(), 0.3f);
     }
 
     public static void registerFlammables() {
@@ -32,6 +34,8 @@ public class FruitfulData {
         RenderTypeLookup.setRenderLayer(FruitfulBlocks.FLOWERING_OAK_LEAVES.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(FruitfulBlocks.BUDDING_OAK_LEAVES.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(FruitfulBlocks.BLOSSOMING_OAK_LEAVES.get(), RenderType.getCutoutMipped());
+
+        RenderTypeLookup.setRenderLayer(FruitfulBlocks.FLOWERING_OAK_SAPLING.get(), RenderType.getCutoutMipped());
     }
 
     public static void registerBlockColors() {
