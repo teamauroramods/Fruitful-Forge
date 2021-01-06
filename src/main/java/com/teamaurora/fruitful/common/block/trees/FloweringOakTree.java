@@ -12,6 +12,10 @@ import java.util.Random;
 public class FloweringOakTree extends Tree {
     @Nullable
     protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean largeHive) {
-        return FruitfulFeatures.Configured.FLOWERING_OAK;
+        if (randomIn.nextInt(10) == 0) {
+            return largeHive ? FruitfulFeatures.Configured.FLOWERING_FANCY_OAK_BEES_005 : FruitfulFeatures.Configured.FLOWERING_FANCY_OAK;
+        } else {
+            return largeHive ? FruitfulFeatures.Configured.FLOWERING_OAK_BEES_005 : FruitfulFeatures.Configured.FLOWERING_OAK;
+        }
     }
 }
