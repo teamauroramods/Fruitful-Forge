@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "fruitful:block/blossoming_oak_leaves"
+  }
+}

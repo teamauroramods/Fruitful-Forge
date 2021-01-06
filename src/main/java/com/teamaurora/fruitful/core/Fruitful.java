@@ -2,6 +2,7 @@ package com.teamaurora.fruitful.core;
 
 import com.teamaurora.fruitful.core.other.FruitfulData;
 import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
+import com.teamaurora.fruitful.core.registry.FruitfulFeatures;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -49,6 +50,7 @@ public class Fruitful
 
     private void clientSetup(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            FruitfulFeatures.Configured.registerConfiguredFeatures();
             FruitfulData.registerBlockColors();
             FruitfulData.setupRenderLayer();
         });

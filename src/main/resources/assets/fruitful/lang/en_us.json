@@ -1,3 +1,8 @@
 {
-  "block.fruitful.apple_oak_leaves": "Apple Oak Leaves"
+  "block.fruitful.apple_oak_leaves": "Apple Oak Leaves",
+  "block.fruitful.flowering_oak_leaves": "Flowering Oak Leaves",
+  "block.fruitful.budding_oak_leaves": "Budding Oak Leaves",
+  "block.fruitful.blossoming_oak_leaves": "Blossoming Oak Leaves",
+
+  "block.fruitful.flowering_oak_sapling": "Flowering Oak Sapling"
 }
