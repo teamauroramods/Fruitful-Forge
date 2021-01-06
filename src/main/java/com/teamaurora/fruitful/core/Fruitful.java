@@ -1,8 +1,6 @@
 package com.teamaurora.fruitful.core;
 
 import com.teamaurora.fruitful.core.other.FruitfulData;
-import com.teamaurora.fruitful.core.other.FruitfulEvents;
-import com.teamaurora.fruitful.core.registry.FruitfulFeatures;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -45,11 +43,9 @@ public class Fruitful
 
     @SuppressWarnings("deprecation")
     private void commonSetup(final FMLCommonSetupEvent event) {
-        MinecraftForge.EVENT_BUS.register(new FruitfulEvents());
         DeferredWorkQueue.runLater(() -> {
             FruitfulData.registerCompostables();
             FruitfulData.registerFlammables();
-            FruitfulFeatures.generateFeatures();
         });
     }
 
