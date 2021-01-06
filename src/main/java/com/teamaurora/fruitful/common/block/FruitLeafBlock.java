@@ -1,6 +1,7 @@
 package com.teamaurora.fruitful.common.block;
 
-import com.teamabnormals.abnormals_core.common.blocks.wood.AbnormalsLeavesBlock;
+import com.minecraftabnormals.abnormals_core.common.blocks.wood.AbnormalsLeavesBlock;
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,6 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Supplier;
 
 public class FruitLeafBlock extends AbnormalsLeavesBlock {
@@ -26,6 +28,7 @@ public class FruitLeafBlock extends AbnormalsLeavesBlock {
         fruitItem = fruit;
     }
 
+    @SuppressWarnings("deprecation")
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         spawnAsEntity(worldIn, pos, new ItemStack(fruitItem.get(), 1));
         worldIn.playSound((PlayerEntity)null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.rand.nextFloat() * 0.4F);

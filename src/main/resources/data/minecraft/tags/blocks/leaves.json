@@ -1,8 +1,6 @@
 {
   "replace": false,
   "values": [
-    "fruitful:apple_oak_leaves",
-    "fruitful:peach_birch_leaves",
-    "fruitful:orange_jungle_leaves"
+    "fruitful:apple_oak_leaves"
   ]
 }

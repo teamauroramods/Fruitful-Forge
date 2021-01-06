@@ -1,15 +1,3 @@
 {
-  "block.fruitful.apple_oak_leaves": "Apple Oak Leaves",
-  "block.fruitful.peach_birch_leaves": "Peach Birch Leaves",
-  "block.fruitful.orange_jungle_leaves": "Orange Jungle Leaves",
-
-  "block.fruitful.peach_crate": "Peach Crate",
-  "block.fruitful.orange_crate": "Orange Crate",
-
-  "item.fruitful.peach": "Peach",
-  "item.fruitful.orange": "Orange",
-
-  "item.fruitful.apple_crumble": "Apple Crumble",
-  "item.fruitful.peach_cobbler": "Peach Cobbler",
-  "item.fruitful.orange_juice": "Orange Juice"
+  "block.fruitful.apple_oak_leaves": "Apple Oak Leaves"
 }

@@ -1,7 +1,7 @@
 package com.teamaurora.fruitful.core.other;
 
 import com.teamaurora.fruitful.core.registry.FruitfulBlocks;
-import com.teamabnormals.abnormals_core.core.utils.DataUtils;
+import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -14,11 +14,11 @@ import java.util.Arrays;
 
 public class FruitfulData {
     public static void registerCompostables() {
-        DataUtils.registerCompostable(0.95f, FruitfulBlocks.APPLE_OAK_LEAVES.get());
+        DataUtil.registerCompostable(FruitfulBlocks.APPLE_OAK_LEAVES.get(), 0.95f);
     }
 
     public static void registerFlammables() {
-        DataUtils.registerFlammable(FruitfulBlocks.APPLE_OAK_LEAVES.get(), 30, 60);
+        DataUtil.registerFlammable(FruitfulBlocks.APPLE_OAK_LEAVES.get(), 30, 60);
     }
 
     public static void setupRenderLayer() {
@@ -27,9 +27,9 @@ public class FruitfulData {
 
     public static void registerBlockColors() {
         BlockColors blockColors = Minecraft.getInstance().getBlockColors();
-        DataUtils.registerBlockColor(blockColors, (x, world, pos, u) -> world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getDefault(), Arrays.asList(FruitfulBlocks.APPLE_OAK_LEAVES));
+        DataUtil.registerBlockColor(blockColors, (x, world, pos, u) -> world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getDefault(), Arrays.asList(FruitfulBlocks.APPLE_OAK_LEAVES));
 
         ItemColors itemColors = Minecraft.getInstance().getItemColors();
-        DataUtils.registerBlockItemColor(itemColors, (color, items) -> FoliageColors.getDefault(), Arrays.asList(FruitfulBlocks.APPLE_OAK_LEAVES));
+        DataUtil.registerBlockItemColor(itemColors, (color, items) -> FoliageColors.getDefault(), Arrays.asList(FruitfulBlocks.APPLE_OAK_LEAVES));
     }
 }
