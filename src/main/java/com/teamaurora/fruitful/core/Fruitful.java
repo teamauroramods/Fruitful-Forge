@@ -25,8 +25,7 @@ public class Fruitful
 {
     public static final String MODID = "fruitful";
     public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MODID);
-
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger(MODID);
 
     public Fruitful() {
         final IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
