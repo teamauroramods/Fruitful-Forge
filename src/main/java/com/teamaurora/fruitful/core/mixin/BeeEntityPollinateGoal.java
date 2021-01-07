@@ -25,7 +25,7 @@ public abstract class BeeEntityPollinateGoal {
     }
 
     @Inject(method = "getFlower", at = @At("HEAD"), cancellable = true)
-    private void onTick(CallbackInfoReturnable<Optional<BlockPos>> cir) {
+    private void onGetFlower(CallbackInfoReturnable<Optional<BlockPos>> cir) {
         Optional<BlockPos> pos = findFlower((blockState) -> blockState.getBlock() == FruitfulBlocks.BLOSSOMING_OAK_LEAVES.get(),5.0d);
 
         if (pos.isPresent())
