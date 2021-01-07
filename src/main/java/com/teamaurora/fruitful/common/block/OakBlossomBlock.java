@@ -44,10 +44,10 @@ public class OakBlossomBlock extends AbnormalsLeavesBlock {
     //TODO: will probably need to mixin to BeeEntity here. Kinda a pain but oh well
     /*@Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-        List<BeeEntity> bees = worldIn.getEntitiesWithinAABB(EntityType.BEE, new AxisAlignedBB(pos.getX()-1, pos.getY()-1, pos.getZ()-1, pos.getX()+1, pos.getY()+1, pos.getZ()+1), Objects::nonNull);
-        if (!bees.isEmpty() && !state.get(LeavesBlock.PERSISTENT)) {
+        //List<BeeEntity> bees = worldIn.getEntitiesWithinAABB(EntityType.BEE, new AxisAlignedBB(pos.getX()-1, pos.getY()-1, pos.getZ()-1, pos.getX()+1, pos.getY()+1, pos.getZ()+1), Objects::nonNull);
+        //if (!bees.isEmpty() && !state.get(LeavesBlock.PERSISTENT)) {
             worldIn.setBlockState(pos, FruitfulBlocks.APPLE_OAK_LEAVES.get().getDefaultState().with(LeavesBlock.PERSISTENT, false).with(LeavesBlock.DISTANCE, state.get(LeavesBlock.DISTANCE)));
-        }
+        //}
         super.tick(state, worldIn, pos, rand);
     }*/
 }

@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.teamaurora.fruitful.core.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "minVersion": "0.8",
+  "refmap": "fruitful.refmap.json",
+  "mixins": [
+    "BeeEntityFindPollinationTargetGoalMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
