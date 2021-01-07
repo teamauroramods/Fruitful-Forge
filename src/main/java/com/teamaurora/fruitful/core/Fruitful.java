@@ -2,6 +2,7 @@ package com.teamaurora.fruitful.core;
 
 import com.teamaurora.fruitful.core.other.FruitfulData;
 import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
+import com.teamaurora.fruitful.core.registry.FruitfulEffects;
 import com.teamaurora.fruitful.core.registry.FruitfulFeatures;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -31,6 +32,8 @@ public class Fruitful
         final IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         REGISTRY_HELPER.register(eventBus);
+
+        FruitfulEffects.EFFECTS.register(eventBus);
 
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             eventBus.addListener(EventPriority.LOWEST, this::clientSetup);
