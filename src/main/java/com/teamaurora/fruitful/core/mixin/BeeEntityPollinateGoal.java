@@ -21,7 +21,6 @@ public abstract class BeeEntityPollinateGoal {
     protected abstract Optional<BlockPos> findFlower(Predicate<BlockState> p_226500_1_, double distance);
 
     public BeeEntityPollinateGoal() {
-
     }
 
     @Inject(method = "getFlower", at = @At("HEAD"), cancellable = true)
