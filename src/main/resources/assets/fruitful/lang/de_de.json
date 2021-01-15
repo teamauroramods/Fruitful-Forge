@@ -1,15 +1,11 @@
 {
   "block.fruitful.apple_oak_leaves": "Apfeleichenlaub",
-  "block.fruitful.peach_birch_leaves": "Pfirsichbirkenlaub",
-  "block.fruitful.orange_jungle_leaves": "Orangentropenlaub",
+  "block.fruitful.flowering_oak_leaves": "Blüteneichenlaub",
+  "block.fruitful.budding_oak_leaves": "Knospeneichenlaub",
+  "block.fruitful.blossoming_oak_leaves": "Blüheichenlaub",
 
-  "block.fruitful.peach_crate": "Pfirsichkiste",
-  "block.fruitful.orange_crate": "Orangenkiste",
+  "block.fruitful.flowering_oak_sapling": "Blüteneichensetzling",
+  "block.fruitful.potted_flowering_oak_sapling": "Eingetopfter Blüteneichensetzling",
 
-  "item.fruitful.peach": "Pfirsich",
-  "item.fruitful.orange": "Orange",
-
-  "item.fruitful.apple_crumble": "Apfelstreusel",
-  "item.fruitful.peach_cobbler": "Pfirsich-Cobbler",
-  "item.fruitful.orange_juice": "Orangensaft"
+  "item.fruitful.baked_apple": "Bratapfel"
 }
