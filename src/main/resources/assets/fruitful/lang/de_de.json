@@ -1,0 +1,11 @@
+{
+  "block.fruitful.apple_oak_leaves": "Apfeleichenlaub",
+  "block.fruitful.flowering_oak_leaves": "Blüteneichenlaub",
+  "block.fruitful.budding_oak_leaves": "Knospeneichenlaub",
+  "block.fruitful.blossoming_oak_leaves": "Blüheichenlaub",
+
+  "block.fruitful.flowering_oak_sapling": "Blüteneichensetzling",
+  "block.fruitful.potted_flowering_oak_sapling": "Eingetopfter Blüteneichensetzling",
+
+  "item.fruitful.baked_apple": "Bratapfel"
+}
