@@ -23,7 +23,7 @@ public class OakBlossomBlock extends AbnormalsLeavesBlock {
 
     public OakBlossomBlock(AbstractBlock.Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(DISTANCE, Integer.valueOf(7)).with(PERSISTENT, Boolean.valueOf(false)).with(POLLINATED, Boolean.valueOf(false)));
+        this.setDefaultState(this.stateContainer.getBaseState().with(DISTANCE, 7).with(PERSISTENT, false).with(POLLINATED, false));
     }
 
     @Override

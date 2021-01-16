@@ -34,7 +34,7 @@ public class FruitLeavesBlock extends AbnormalsLeavesBlock {
     @SuppressWarnings("deprecation")
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         spawnAsEntity(worldIn, pos, new ItemStack(fruitItem.get(), 1));
-        worldIn.playSound((PlayerEntity)null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.rand.nextFloat() * 0.4F);
+        worldIn.playSound(null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.rand.nextFloat() * 0.4F);
         worldIn.setBlockState(pos, leavesBlock.getDefaultState().with(LeavesBlock.PERSISTENT, state.get(LeavesBlock.PERSISTENT)).with(LeavesBlock.DISTANCE, state.get(LeavesBlock.DISTANCE)), 2);
         return ActionResultType.func_233537_a_(worldIn.isRemote);
     }
@@ -53,7 +53,6 @@ public class FruitLeavesBlock extends AbnormalsLeavesBlock {
             spawnAsEntity(worldIn, pos, new ItemStack(fruitItem.get(), 1));
             worldIn.setBlockState(pos, FruitfulBlocks.BUDDING_OAK_LEAVES.get().getDefaultState().with(LeavesBlock.PERSISTENT, false).with(LeavesBlock.DISTANCE, state.get(LeavesBlock.DISTANCE)));
         }
-
         super.randomTick(state, worldIn, pos, random);
     }
 }

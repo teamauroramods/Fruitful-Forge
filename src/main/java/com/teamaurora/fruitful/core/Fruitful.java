@@ -4,6 +4,7 @@ import com.teamaurora.fruitful.core.other.FruitfulData;
 import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
 import com.teamaurora.fruitful.core.registry.FruitfulEffects;
 import com.teamaurora.fruitful.core.registry.FruitfulFeatures;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -43,11 +44,12 @@ public class Fruitful
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, FruitfulConfig.COMMON_SPEC);
     }
 
+    public static ResourceLocation resLoc(String path) {
+        return new ResourceLocation(MODID, path);
+    }
+
     private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-            FruitfulData.registerCompostables();
-            FruitfulData.registerFlammables();
-        });
+        event.enqueueWork(FruitfulData::registerCommon);
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
