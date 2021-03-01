@@ -1,11 +1,13 @@
 {
   "block.fruitful.apple_oak_leaves": "Hojas de roble con manzanas",
-  "block.fruitful.flowering_oak_leaves": "Hojas de roble florecientes",
-  "block.fruitful.budding_oak_leaves": "Hojas de roble brotantes",
-  "block.fruitful.blossoming_oak_leaves": "Hojas de roble florecidas",
+  "block.fruitful.flowering_oak_leaves": "Hojas de roble florecidas",
+  "block.fruitful.budding_oak_leaves": "Hojas de roble en ciernes",
+  "block.fruitful.blossoming_oak_leaves": "Hojas de roble fructíferas",
 
-  "block.fruitful.flowering_oak_sapling": "Brote de roble floreciente",
-  "block.fruitful.potted_flowering_oak_sapling": "Maceta con brote de roble floreciente",
+  "block.fruitful.flowering_oak_sapling": "Brote de roble florecido",
+  "block.fruitful.potted_flowering_oak_sapling": "Maceta con brote de roble florecido",
+
+  "effect.fruitful.nourishing": "Nutrición",
 
   "item.fruitful.baked_apple": "Manzana horneada"
 }
