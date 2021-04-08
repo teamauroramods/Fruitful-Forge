@@ -1,7 +1,0 @@
-{
-  "parent": "fruitful:block/leaves_overlay",
-  "textures": {
-    "leaves": "fruitful:block/orange_jungle_leaves",
-    "overlay": "fruitful:block/orange_jungle_leaves_overlay"
-  }
-}

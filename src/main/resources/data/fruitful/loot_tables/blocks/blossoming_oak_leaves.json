@@ -35,7 +35,7 @@
                   ]
                 }
               ],
-              "name": "fruitful:apple_oak_leaves"
+              "name": "fruitful:blossoming_oak_leaves"
             },
             {
               "type": "minecraft:item",
@@ -129,46 +129,52 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:apply_bonus",
-              "enchantment": "minecraft:fortune",
-              "formula": "minecraft:ore_drops"
-            },
-            {
-              "function": "minecraft:explosion_decay"
-            }
-          ],
-          "name": "minecraft:apple",
           "conditions": [
             {
-              "condition": "minecraft:inverted",
-              "term": {
-                "condition": "minecraft:alternative",
-                "terms": [
-                  {
-                    "condition": "minecraft:match_tool",
-                    "predicate": {
-                      "item": "minecraft:shears"
-                    }
-                  },
-                  {
-                    "condition": "minecraft:match_tool",
-                    "predicate": {
-                      "enchantments": [
-                        {
-                          "enchantment": "minecraft:silk_touch",
-                          "levels": {
-                            "min": 1
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
+              "condition": "minecraft:survives_explosion"
+            },
+            {
+              "condition": "minecraft:table_bonus",
+              "enchantment": "minecraft:fortune",
+              "chances": [
+                0.005,
+                0.0055555557,
+                0.00625,
+                0.008333334,
+                0.025
+              ]
             }
-          ]
+          ],
+          "name": "minecraft:apple"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "condition": "minecraft:alternative",
+            "terms": [
+              {
+                "condition": "minecraft:match_tool",
+                "predicate": {
+                  "item": "minecraft:shears"
+                }
+              },
+              {
+                "condition": "minecraft:match_tool",
+                "predicate": {
+                  "enchantments": [
+                    {
+                      "enchantment": "minecraft:silk_touch",
+                      "levels": {
+                        "min": 1
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         }
       ]
     }

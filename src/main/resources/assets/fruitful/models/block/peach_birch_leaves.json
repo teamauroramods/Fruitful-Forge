@@ -1,7 +1,0 @@
-{
-  "parent": "fruitful:block/leaves_overlay",
-  "textures": {
-    "leaves": "fruitful:block/peach_birch_leaves",
-    "overlay": "fruitful:block/peach_birch_leaves_overlay"
-  }
-}

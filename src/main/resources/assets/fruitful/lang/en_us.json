@@ -1,15 +1,13 @@
 {
   "block.fruitful.apple_oak_leaves": "Apple Oak Leaves",
-  "block.fruitful.peach_birch_leaves": "Peach Birch Leaves",
-  "block.fruitful.orange_jungle_leaves": "Orange Jungle Leaves",
+  "block.fruitful.flowering_oak_leaves": "Flowering Oak Leaves",
+  "block.fruitful.budding_oak_leaves": "Budding Oak Leaves",
+  "block.fruitful.blossoming_oak_leaves": "Blossoming Oak Leaves",
 
-  "block.fruitful.peach_crate": "Peach Crate",
-  "block.fruitful.orange_crate": "Orange Crate",
+  "block.fruitful.flowering_oak_sapling": "Flowering Oak Sapling",
+  "block.fruitful.potted_flowering_oak_sapling": "Flowering Oak Sapling",
+  
+  "effect.fruitful.nourishing": "Nourishing",
 
-  "item.fruitful.peach": "Peach",
-  "item.fruitful.orange": "Orange",
-
-  "item.fruitful.apple_pie": "Apple Pie",
-  "item.fruitful.peach_cobbler": "Peach Cobbler",
-  "item.fruitful.orange_juice": "Orange Juice"
+  "item.fruitful.baked_apple": "Baked Apple"
 }

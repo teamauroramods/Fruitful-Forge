@@ -1,15 +1,13 @@
 {
   "block.fruitful.apple_oak_leaves": "Hojas de roble con manzanas",
-  "block.fruitful.peach_birch_leaves": "Hojas de abedul con duraznos",
-  "block.fruitful.orange_jungle_leaves": "Hojas de jungla con naranjas",
+  "block.fruitful.flowering_oak_leaves": "Hojas de roble floridas",
+  "block.fruitful.budding_oak_leaves": "Hojas de roble en ciernes",
+  "block.fruitful.blossoming_oak_leaves": "Hojas de roble fructíferas",
 
-  "block.fruitful.peach_crate": "Cajón de duraznos",
-  "block.fruitful.orange_crate": "Cajón de naranjas",
+  "block.fruitful.flowering_oak_sapling": "Brote de roble florido",
+  "block.fruitful.potted_flowering_oak_sapling": "Maceta con brote de roble florido",
 
-  "item.fruitful.peach": "Durazno",
-  "item.fruitful.orange": "Naranja",
+  "effect.fruitful.nourishing": "Nutrición",
 
-  "item.fruitful.apple_pie": "Pastel de manzana",
-  "item.fruitful.peach_cobbler": "Postre de duraznos",
-  "item.fruitful.orange_juice": "Jugo de naranja"
+  "item.fruitful.baked_apple": "Manzana horneada"
 }

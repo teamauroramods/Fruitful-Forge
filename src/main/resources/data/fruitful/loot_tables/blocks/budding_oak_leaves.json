@@ -35,7 +35,7 @@
                   ]
                 }
               ],
-              "name": "fruitful:apple_oak_leaves"
+              "name": "fruitful:budding_oak_leaves"
             },
             {
               "type": "minecraft:item",
@@ -121,54 +121,6 @@
               }
             ]
           }
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:apply_bonus",
-              "enchantment": "minecraft:fortune",
-              "formula": "minecraft:ore_drops"
-            },
-            {
-              "function": "minecraft:explosion_decay"
-            }
-          ],
-          "name": "minecraft:apple",
-          "conditions": [
-            {
-              "condition": "minecraft:inverted",
-              "term": {
-                "condition": "minecraft:alternative",
-                "terms": [
-                  {
-                    "condition": "minecraft:match_tool",
-                    "predicate": {
-                      "item": "minecraft:shears"
-                    }
-                  },
-                  {
-                    "condition": "minecraft:match_tool",
-                    "predicate": {
-                      "enchantments": [
-                        {
-                          "enchantment": "minecraft:silk_touch",
-                          "levels": {
-                            "min": 1
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
         }
       ]
     }
