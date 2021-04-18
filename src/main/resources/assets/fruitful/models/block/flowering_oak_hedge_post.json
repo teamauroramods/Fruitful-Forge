@@ -1,0 +1,8 @@
+{
+  "parent": "fruitful:block/hedge_post_overlay",
+  "textures": {
+    "log": "minecraft:block/oak_log",
+    "leaf": "fruitful:block/flowering_oak_leaves",
+    "overlay": "fruitful:block/flowering_oak_leaves_overlay"
+  }
+}

@@ -25,6 +25,11 @@ public class FruitfulCompat {
         DataUtil.registerCompostable(FruitfulBlocks.BUDDING_OAK_LEAVES.get(), 0.3f);
         DataUtil.registerCompostable(FruitfulBlocks.BLOSSOMING_OAK_LEAVES.get(), 0.3f);
 
+        DataUtil.registerCompostable(FruitfulBlocks.APPLE_OAK_LEAF_CARPET.get(), 0.95f);
+        DataUtil.registerCompostable(FruitfulBlocks.FLOWERING_OAK_LEAF_CARPET.get(), 0.3f);
+        DataUtil.registerCompostable(FruitfulBlocks.BUDDING_OAK_LEAF_CARPET.get(), 0.3f);
+        DataUtil.registerCompostable(FruitfulBlocks.BLOSSOMING_OAK_LEAF_CARPET.get(), 0.3f);
+
         DataUtil.registerCompostable(FruitfulBlocks.FLOWERING_OAK_SAPLING.get(), 0.3f);
     }
 
@@ -33,5 +38,15 @@ public class FruitfulCompat {
         DataUtil.registerFlammable(FruitfulBlocks.FLOWERING_OAK_LEAVES.get(), 30, 60);
         DataUtil.registerFlammable(FruitfulBlocks.BUDDING_OAK_LEAVES.get(), 30, 60);
         DataUtil.registerFlammable(FruitfulBlocks.BLOSSOMING_OAK_LEAVES.get(), 30, 60);
+
+        DataUtil.registerFlammable(FruitfulBlocks.APPLE_OAK_LEAF_CARPET.get(), 30, 60);
+        DataUtil.registerFlammable(FruitfulBlocks.FLOWERING_OAK_LEAF_CARPET.get(), 30, 60);
+        DataUtil.registerFlammable(FruitfulBlocks.BUDDING_OAK_LEAF_CARPET.get(), 30, 60);
+        DataUtil.registerFlammable(FruitfulBlocks.BLOSSOMING_OAK_LEAF_CARPET.get(), 30, 60);
+
+        DataUtil.registerFlammable(FruitfulBlocks.APPLE_OAK_HEDGE.get(), 5, 20);
+        DataUtil.registerFlammable(FruitfulBlocks.FLOWERING_OAK_HEDGE.get(), 5, 20);
+        DataUtil.registerFlammable(FruitfulBlocks.BUDDING_OAK_HEDGE.get(), 5, 20);
+        DataUtil.registerFlammable(FruitfulBlocks.BLOSSOMING_OAK_HEDGE.get(), 5, 20);
     }
 }

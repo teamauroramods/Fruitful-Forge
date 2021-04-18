@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "fruitful:budding_oak_hedge",
+    "fruitful:flowering_oak_hedge",
+    "fruitful:blossoming_oak_hedge",
+    "fruitful:apple_oak_hedge"
+  ]
+}

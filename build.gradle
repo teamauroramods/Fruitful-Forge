@@ -95,7 +95,9 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     implementation fg.deobf("com.minecraftabnormals:abnormals-core:${minecraft_version}-${ac_version}")
-    runtimeOnly fg.deobf("curse.maven:jei-238222:3136600")
+    runtimeOnly fg.deobf("curse.maven:jei-238222:3157864")
+    runtimeOnly fg.deobf("curse.maven:autoreglib-250363:3128555")
+    runtimeOnly fg.deobf("curse.maven:quark-243121:3221260")
 }
 
 repositories {

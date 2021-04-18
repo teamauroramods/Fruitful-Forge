@@ -29,10 +29,36 @@ public class ClientRegister {
 
     public static void registerBlockColors() {
         BlockColors blockColors = Minecraft.getInstance().getBlockColors();
-        DataUtil.registerBlockColor(blockColors, (x, world, pos, u) -> world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getDefault(), Arrays.asList(FruitfulBlocks.BUDDING_OAK_LEAVES, FruitfulBlocks.FLOWERING_OAK_LEAVES, FruitfulBlocks.BLOSSOMING_OAK_LEAVES, FruitfulBlocks.APPLE_OAK_LEAVES));
+        DataUtil.registerBlockColor(blockColors, (x, world, pos, u) -> world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getDefault(), Arrays.asList(
+                FruitfulBlocks.BUDDING_OAK_LEAVES,
+                FruitfulBlocks.FLOWERING_OAK_LEAVES,
+                FruitfulBlocks.BLOSSOMING_OAK_LEAVES,
+                FruitfulBlocks.APPLE_OAK_LEAVES,
+                FruitfulBlocks.BUDDING_OAK_LEAF_CARPET,
+                FruitfulBlocks.FLOWERING_OAK_LEAF_CARPET,
+                FruitfulBlocks.BLOSSOMING_OAK_LEAF_CARPET,
+                FruitfulBlocks.APPLE_OAK_LEAF_CARPET,
+                FruitfulBlocks.BUDDING_OAK_HEDGE,
+                FruitfulBlocks.FLOWERING_OAK_HEDGE,
+                FruitfulBlocks.BLOSSOMING_OAK_HEDGE,
+                FruitfulBlocks.APPLE_OAK_HEDGE
+        ));
 
         ItemColors itemColors = Minecraft.getInstance().getItemColors();
-        DataUtil.registerBlockItemColor(itemColors, (color, items) -> FoliageColors.getDefault(), Arrays.asList(FruitfulBlocks.BUDDING_OAK_LEAVES, FruitfulBlocks.FLOWERING_OAK_LEAVES, FruitfulBlocks.BLOSSOMING_OAK_LEAVES, FruitfulBlocks.APPLE_OAK_LEAVES));
+        DataUtil.registerBlockItemColor(itemColors, (color, items) -> FoliageColors.getDefault(), Arrays.asList(
+                FruitfulBlocks.BUDDING_OAK_LEAVES,
+                FruitfulBlocks.FLOWERING_OAK_LEAVES,
+                FruitfulBlocks.BLOSSOMING_OAK_LEAVES,
+                FruitfulBlocks.APPLE_OAK_LEAVES,
+                FruitfulBlocks.BUDDING_OAK_LEAF_CARPET,
+                FruitfulBlocks.FLOWERING_OAK_LEAF_CARPET,
+                FruitfulBlocks.BLOSSOMING_OAK_LEAF_CARPET,
+                FruitfulBlocks.APPLE_OAK_LEAF_CARPET,
+                FruitfulBlocks.BUDDING_OAK_HEDGE,
+                FruitfulBlocks.FLOWERING_OAK_HEDGE,
+                FruitfulBlocks.BLOSSOMING_OAK_HEDGE,
+                FruitfulBlocks.APPLE_OAK_HEDGE
+        ));
     }
 
     public static void setupRenderLayer() {
@@ -40,6 +66,16 @@ public class ClientRegister {
         RenderTypeLookup.setRenderLayer(FruitfulBlocks.FLOWERING_OAK_LEAVES.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(FruitfulBlocks.BUDDING_OAK_LEAVES.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(FruitfulBlocks.BLOSSOMING_OAK_LEAVES.get(), RenderType.getCutoutMipped());
+
+        RenderTypeLookup.setRenderLayer(FruitfulBlocks.APPLE_OAK_LEAF_CARPET.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(FruitfulBlocks.FLOWERING_OAK_LEAF_CARPET.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(FruitfulBlocks.BUDDING_OAK_LEAF_CARPET.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(FruitfulBlocks.BLOSSOMING_OAK_LEAF_CARPET.get(), RenderType.getCutoutMipped());
+
+        RenderTypeLookup.setRenderLayer(FruitfulBlocks.APPLE_OAK_HEDGE.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(FruitfulBlocks.FLOWERING_OAK_HEDGE.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(FruitfulBlocks.BUDDING_OAK_HEDGE.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(FruitfulBlocks.BLOSSOMING_OAK_HEDGE.get(), RenderType.getCutoutMipped());
 
         RenderTypeLookup.setRenderLayer(FruitfulBlocks.FLOWERING_OAK_SAPLING.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(FruitfulBlocks.POTTED_FLOWERING_OAK_SAPLING.get(), RenderType.getCutoutMipped());
