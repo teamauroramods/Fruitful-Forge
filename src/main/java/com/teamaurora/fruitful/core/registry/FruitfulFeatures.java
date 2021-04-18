@@ -19,6 +19,7 @@ import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliageplacer.FancyFoliagePlacer;
+import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.ChanceConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.trunkplacer.FancyTrunkPlacer;
@@ -61,18 +62,19 @@ public class FruitfulFeatures {
     }
 
     @SubscribeEvent
-    public static void addFeatures(BiomeLoadingEvent event) {
+    public static void onBiomeLoad(BiomeLoadingEvent event) {
         ResourceLocation biomeName = event.getName();
+
+        if (biomeName == null) return;
 
         if (FruitfulConfig.COMMON.flowerBiomes.get().contains(biomeName.toString())) {
             event.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Configured.FLOWERING_OAK_INFREQUENT);
         }
 
-        if (FruitfulConfig.COMMON.fullFlowerBiomes.get().contains(biomeName.toString())) {
+        if (DataUtil.matchesKeys(biomeName, Biomes.FLOWER_FOREST)) {
             List<Supplier<ConfiguredFeature<?, ?>>> features = event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION);
             if (event.getName() != null) {
                 List<Supplier<ConfiguredFeature<?, ?>>> toRemove = new ArrayList<>();
-                List<ConfiguredFeature<?, ?>> toAdd = new ArrayList<>();
                 for (Supplier<ConfiguredFeature<?, ?>> configuredFeatureSupplier : features) {
                     IFeatureConfig config = configuredFeatureSupplier.get().config;
                     if (config instanceof DecoratedFeatureConfig) {
@@ -83,40 +85,31 @@ public class FruitfulFeatures {
                             if (configuredFeature.config instanceof MultipleRandomFeatureConfig) {
                                 MultipleRandomFeatureConfig mrfconfig = (MultipleRandomFeatureConfig) configuredFeature.config;
 
-                                ConfiguredFeature<?, ?> tempDef = mrfconfig.defaultFeature.get();
-                                if (isFancyOak((BaseTreeFeatureConfig) tempDef.config)) {
-                                    tempDef = Configured.FLOWERING_FANCY_OAK_BEES_002;
-                                } else if (isOak((BaseTreeFeatureConfig) tempDef.config)) {
-                                    tempDef = Configured.FLOWERING_OAK_BEES_002;
+                                boolean remove = false;
+
+                                if (isFancyOak((BaseTreeFeatureConfig) mrfconfig.defaultFeature.get().config)) {
+                                    remove = true;
+                                } else if (isOak((BaseTreeFeatureConfig) mrfconfig.defaultFeature.get().config)) {
+                                    remove = true;
                                 }
 
-                                List<ConfiguredRandomFeatureList> tempFeatures = new ArrayList<>();
                                 for (ConfiguredRandomFeatureList crfl : mrfconfig.features) {
-                                    ConfiguredFeature<?, ?> crflFeature = crfl.feature.get();
-                                    if (isFancyOak((BaseTreeFeatureConfig) crflFeature.config)) {
-                                        tempFeatures.add(new ConfiguredRandomFeatureList(Configured.FLOWERING_FANCY_OAK_BEES_002, crfl.chance));
-                                    } else if (isOak((BaseTreeFeatureConfig) crflFeature.config)) {
-                                        tempFeatures.add(new ConfiguredRandomFeatureList(Configured.FLOWERING_OAK_BEES_002, crfl.chance));
-                                    } else {
-                                        tempFeatures.add(crfl);
+                                    if (isFancyOak((BaseTreeFeatureConfig) crfl.feature.get().config)) {
+                                        remove = true;
+                                    } else if (isOak((BaseTreeFeatureConfig) crfl.feature.get().config)) {
+                                        remove = true;
                                     }
                                 }
 
-                                MultipleRandomFeatureConfig tempConfig = new MultipleRandomFeatureConfig(tempFeatures, tempDef);
-                                if (tempConfig != mrfconfig) {
+                                if (remove) {
                                     toRemove.add(configuredFeatureSupplier);
-                                    Feature<MultipleRandomFeatureConfig> featureMRFC = (Feature<MultipleRandomFeatureConfig>) configuredFeature.feature;
-                                    ConfiguredFeature<?, ?> featurePlaced =  featureMRFC.withConfiguration(tempConfig).withPlacement(((DecoratedFeatureConfig) config1).decorator);
-                                    toAdd.add(featurePlaced.withPlacement(((DecoratedFeatureConfig) config).decorator));
                                 }
                             }
                         }
                     }
                 }
                 toRemove.forEach(features::remove);
-                for (ConfiguredFeature<?, ?> f : toAdd) {
-                    event.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, f);
-                }
+                event.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Configured.FOREST_FLOWER_TREES);
             }
         }
     }
@@ -153,6 +146,7 @@ public class FruitfulFeatures {
         public static final ConfiguredFeature<BaseTreeFeatureConfig, ?> FLOWERING_FANCY_OAK_BEES_002 = Feature.TREE.withConfiguration(Configs.FLOWERING_FANCY_OAK.func_236685_a_(ImmutableList.of(Features.Placements.BEES_002_PLACEMENT)));
 
         public static final ConfiguredFeature<?, ?> FLOWERING_OAK_INFREQUENT = FLOWERING_OAK.withPlacement(Placement.CHANCE.configure(new ChanceConfig(5)));
+        public static final ConfiguredFeature<?, ?> FOREST_FLOWER_TREES = Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(Features.BIRCH_BEES_002.withChance(0.2F), FLOWERING_FANCY_OAK_BEES_002.withChance(0.1F)), FLOWERING_OAK_BEES_002)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(6, 0.1F, 1)));
 
         private static <FC extends IFeatureConfig> void register(String name, ConfiguredFeature<FC, ?> configuredFeature) {
             Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(Fruitful.MODID, name), configuredFeature);
@@ -167,6 +161,7 @@ public class FruitfulFeatures {
             register("flowering_fancy_oak_bees_002", FLOWERING_FANCY_OAK_BEES_002);
 
             register("flowering_oak_infrequent", FLOWERING_OAK_INFREQUENT);
+            register("forest_flower_trees", FOREST_FLOWER_TREES);
         }
     }
 }
