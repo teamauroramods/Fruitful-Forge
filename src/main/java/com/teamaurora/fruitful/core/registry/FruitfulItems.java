@@ -16,6 +16,6 @@ public class FruitfulItems {
     public static final RegistryObject<Item> BAKED_APPLE = HELPER.createItem("baked_apple", ()->new Item(new Item.Properties().food(Foods.BAKED_APPLE).group(ItemGroup.FOOD)));
 
     public static class Foods {
-        public static final Food BAKED_APPLE = new Food.Builder().hunger(6).saturation(0.4F).effect(()->new EffectInstance(FruitfulEffects.SUSTAINING.get(), 240, 0, false, false, true), 1.0F).build();
+        public static final Food BAKED_APPLE = new Food.Builder().hunger(6).saturation(0.4F).effect(()->new EffectInstance(FruitfulEffects.SUSTAINING.get(), 200, 1, false, false, true), 1.0F).build();
     }
 }

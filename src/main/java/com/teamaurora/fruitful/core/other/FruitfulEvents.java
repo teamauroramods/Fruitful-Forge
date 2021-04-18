@@ -8,6 +8,7 @@ import net.minecraft.item.Food;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.EffectInstance;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -37,9 +38,17 @@ public class FruitfulEvents {
         if (item.getItem() == Items.APPLE) {
             if (entity.isPotionActive(FruitfulEffects.SUSTAINING.get())) {
                 int ticksRemaining = entity.getActivePotionEffect(FruitfulEffects.SUSTAINING.get()).getDuration();
-                entity.addPotionEffect(new EffectInstance(FruitfulEffects.SUSTAINING.get(), Math.max(120, ticksRemaining), 0, false, false, true));
+                entity.addPotionEffect(new EffectInstance(FruitfulEffects.SUSTAINING.get(), Math.max(200, ticksRemaining), 0, false, false, true));
             } else {
-                entity.addPotionEffect(new EffectInstance(FruitfulEffects.SUSTAINING.get(), 120, 0, false, false, true));
+                entity.addPotionEffect(new EffectInstance(FruitfulEffects.SUSTAINING.get(), 200, 0, false, false, true));
+            }
+        }
+        if (item.getItem().getRegistryName().equals(new ResourceLocation("environmental","apple_pie"))) {
+            if (entity.isPotionActive(FruitfulEffects.SUSTAINING.get())) {
+                int ticksRemaining = entity.getActivePotionEffect(FruitfulEffects.SUSTAINING.get()).getDuration();
+                entity.addPotionEffect(new EffectInstance(FruitfulEffects.SUSTAINING.get(), Math.max(400, ticksRemaining), 0, false, false, true));
+            } else {
+                entity.addPotionEffect(new EffectInstance(FruitfulEffects.SUSTAINING.get(), 400, 0, false, false, true));
             }
         }
     }
