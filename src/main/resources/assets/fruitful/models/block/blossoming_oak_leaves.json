@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "fruitful:block/leaves_overlay",
   "textures": {
-    "all": "fruitful:block/blossoming_oak_leaves"
+    "leaves": "fruitful:block/blossoming_oak_leaves",
+    "overlay": "fruitful:block/blossoming_oak_leaves_overlay"
   }
 }

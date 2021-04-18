@@ -1,15 +1,13 @@
 package com.teamaurora.fruitful.core;
 
-import com.teamaurora.fruitful.core.other.FruitfulData;
+import com.teamaurora.fruitful.core.other.FruitfulCompat;
 import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
 import com.teamaurora.fruitful.core.registry.FruitfulEffects;
 import com.teamaurora.fruitful.core.registry.FruitfulFeatures;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -49,14 +47,15 @@ public class Fruitful
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(FruitfulData::registerCommon);
+        event.enqueueWork(() -> {
+            FruitfulCompat.registerCompostables();
+            FruitfulCompat.registerFlammables();
+        });
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             FruitfulFeatures.Configured.registerConfiguredFeatures();
-            FruitfulData.registerBlockColors();
-            FruitfulData.setupRenderLayer();
         });
     }
 }
