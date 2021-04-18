@@ -40,5 +40,5 @@ public class FruitfulBlocks {
 
 
     public static final RegistryObject<Block> FLOWERING_OAK_SAPLING = HELPER.createBlock("flowering_oak_sapling", ()->new AbnormalsSaplingBlock(new FloweringOakTree(), Block.Properties.create(Material.PLANTS, MaterialColor.GREEN).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F).sound(SoundType.PLANT)), ItemGroup.DECORATIONS);
-    public static final RegistryObject<Block> POTTED_FLOWERING_OAK_SAPLING = HELPER.createBlockNoItem("potted_flowering_oak_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FLOWERING_OAK_SAPLING, AbstractBlock.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid()));
+    public static final RegistryObject<Block> POTTED_FLOWERING_OAK_SAPLING = HELPER.createBlockNoItem("potted_flowering_oak_sapling", () -> new FlowerPotBlock(FLOWERING_OAK_SAPLING.get(), AbstractBlock.Properties.from(Blocks.POTTED_ALLIUM)));
 }
