@@ -11,8 +11,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class NourishingEffect extends Effect {
-    public NourishingEffect() {
+public class SustainingEffect extends Effect {
+    public SustainingEffect() {
         super(EffectType.BENEFICIAL, 16774917);
     }
 

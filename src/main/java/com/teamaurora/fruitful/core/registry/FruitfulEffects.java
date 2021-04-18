@@ -1,6 +1,6 @@
 package com.teamaurora.fruitful.core.registry;
 
-import com.teamaurora.fruitful.common.potion.NourishingEffect;
+import com.teamaurora.fruitful.common.potion.SustainingEffect;
 import com.teamaurora.fruitful.core.Fruitful;
 import net.minecraft.potion.Effect;
 import net.minecraftforge.fml.RegistryObject;
@@ -12,5 +12,5 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class FruitfulEffects {
     public static final DeferredRegister<Effect> EFFECTS = DeferredRegister.create(ForgeRegistries.POTIONS, Fruitful.MODID);
 
-    public static RegistryObject<Effect> NOURISHING = EFFECTS.register("nourishing", NourishingEffect::new);
+    public static RegistryObject<Effect> SUSTAINING = EFFECTS.register("sustaining", SustainingEffect::new);
 }

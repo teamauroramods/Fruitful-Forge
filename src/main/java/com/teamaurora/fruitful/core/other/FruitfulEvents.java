@@ -21,9 +21,9 @@ public class FruitfulEvents {
 
         LivingEntity entity = event.getEntityLiving();
 
-        // NOURISHING //
-        if (entity.isPotionActive(FruitfulEffects.NOURISHING.get())) {
-            int amplifier = entity.getActivePotionEffect(FruitfulEffects.NOURISHING.get()).getAmplifier();
+        // SUSTAINING //
+        if (entity.isPotionActive(FruitfulEffects.SUSTAINING.get())) {
+            int amplifier = entity.getActivePotionEffect(FruitfulEffects.SUSTAINING.get()).getAmplifier();
             if (item.isFood()) {
                 int foodToAdd = 2 * (amplifier + 1);
                 if (entity instanceof PlayerEntity) {
@@ -33,13 +33,13 @@ public class FruitfulEvents {
             }
         }
 
-        // APPLES GIVE NOURISHING //
+        // APPLES GIVE SUSTAINING //
         if (item.getItem() == Items.APPLE) {
-            if (entity.isPotionActive(FruitfulEffects.NOURISHING.get())) {
-                int ticksRemaining = entity.getActivePotionEffect(FruitfulEffects.NOURISHING.get()).getDuration();
-                entity.addPotionEffect(new EffectInstance(FruitfulEffects.NOURISHING.get(), Math.max(120, ticksRemaining), 0, false, false, true));
+            if (entity.isPotionActive(FruitfulEffects.SUSTAINING.get())) {
+                int ticksRemaining = entity.getActivePotionEffect(FruitfulEffects.SUSTAINING.get()).getDuration();
+                entity.addPotionEffect(new EffectInstance(FruitfulEffects.SUSTAINING.get(), Math.max(120, ticksRemaining), 0, false, false, true));
             } else {
-                entity.addPotionEffect(new EffectInstance(FruitfulEffects.NOURISHING.get(), 120, 0, false, false, true));
+                entity.addPotionEffect(new EffectInstance(FruitfulEffects.SUSTAINING.get(), 120, 0, false, false, true));
             }
         }
     }
