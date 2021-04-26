@@ -6,14 +6,14 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
@@ -54,5 +54,38 @@ public class FruitLeavesBlock extends AbnormalsLeavesBlock {
             worldIn.setBlockState(pos, FruitfulBlocks.BUDDING_OAK_LEAVES.get().getDefaultState().with(LeavesBlock.PERSISTENT, false).with(LeavesBlock.DISTANCE, state.get(LeavesBlock.DISTANCE)));
         }
         super.randomTick(state, worldIn, pos, random);
+    }
+
+    private static BlockState updateDistance(BlockState state, IWorld worldIn, BlockPos pos) {
+        int i = 7;
+        BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+
+        for(Direction direction : Direction.values()) {
+            blockpos$mutable.setAndMove(pos, direction);
+            i = Math.min(i, getDistance(worldIn.getBlockState(blockpos$mutable)) + 1);
+            if (i == 1) {
+                break;
+            }
+        }
+
+        return state.with(DISTANCE, Integer.valueOf(i));
+    }
+
+    private static int getDistance(BlockState neighbor) {
+        if (BlockTags.LOGS.contains(neighbor.getBlock())) {
+            return 0;
+        } else {
+            return neighbor.getBlock() instanceof LeavesBlock || neighbor.getBlock() instanceof OakBlossomBlock ? neighbor.get(DISTANCE) : 7;
+        }
+    }
+
+    @Override
+    public BlockState getStateForPlacement(BlockItemUseContext context) {
+        return updateDistance(this.getDefaultState().with(PERSISTENT, Boolean.TRUE), context.getWorld(), context.getPos());
+    }
+
+    @Override
+    public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
+        worldIn.setBlockState(pos, updateDistance(state, worldIn, pos), 3);
     }
 }
