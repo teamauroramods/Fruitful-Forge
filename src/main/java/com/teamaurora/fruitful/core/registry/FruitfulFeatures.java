@@ -78,12 +78,10 @@ public class FruitfulFeatures {
                 for (Supplier<ConfiguredFeature<?, ?>> configuredFeatureSupplier : features) {
                     IFeatureConfig config = configuredFeatureSupplier.get().config;
                     if (config instanceof DecoratedFeatureConfig) {
-                        ConfiguredFeature<?, ?> configuredFeature1 = ((DecoratedFeatureConfig) config).feature.get();
-                        IFeatureConfig config1 = configuredFeature1.config;
+                        IFeatureConfig config1 = ((DecoratedFeatureConfig) config).feature.get().config;
                         if (config1 instanceof DecoratedFeatureConfig) {
-                            ConfiguredFeature<?, ?> configuredFeature = ((DecoratedFeatureConfig) config1).feature.get();
-                            if (configuredFeature.config instanceof MultipleRandomFeatureConfig) {
-                                MultipleRandomFeatureConfig mrfconfig = (MultipleRandomFeatureConfig) configuredFeature.config;
+                            if (((DecoratedFeatureConfig) config1).feature.get().config instanceof MultipleRandomFeatureConfig) {
+                                MultipleRandomFeatureConfig mrfconfig = (MultipleRandomFeatureConfig) ((DecoratedFeatureConfig) config1).feature.get().config;
 
                                 boolean remove = false;
 
