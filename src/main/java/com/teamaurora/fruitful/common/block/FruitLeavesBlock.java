@@ -49,7 +49,7 @@ public class FruitLeavesBlock extends AbnormalsLeavesBlock {
      */
     @Override
     public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
-        if (worldIn.getMoonFactor() <= 0.5 && !state.get(LeavesBlock.PERSISTENT)) {
+        if (worldIn.getMoonFactor() <= 0.25 && !state.get(LeavesBlock.PERSISTENT)) {
             spawnAsEntity(worldIn, pos, new ItemStack(fruitItem.get(), 1));
             worldIn.setBlockState(pos, FruitfulBlocks.BUDDING_OAK_LEAVES.get().getDefaultState().with(LeavesBlock.PERSISTENT, false).with(LeavesBlock.DISTANCE, state.get(LeavesBlock.DISTANCE)));
         }

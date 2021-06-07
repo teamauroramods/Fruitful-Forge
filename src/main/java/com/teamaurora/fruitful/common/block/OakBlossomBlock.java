@@ -70,8 +70,6 @@ public class OakBlossomBlock extends Block implements IForgeShearable {
         if (worldIn.getMoonFactor() <= 0.75 && !state.get(LeavesBlock.PERSISTENT)) {
             if (state.get(POLLINATED)) {
                 worldIn.setBlockState(pos, FruitfulBlocks.APPLE_OAK_LEAVES.get().getDefaultState().with(LeavesBlock.PERSISTENT, false).with(LeavesBlock.DISTANCE, state.get(LeavesBlock.DISTANCE)));
-            } else if (random.nextInt(3) == 0) {
-                worldIn.setBlockState(pos, FruitfulBlocks.FLOWERING_OAK_LEAVES.get().getDefaultState().with(LeavesBlock.PERSISTENT, false).with(LeavesBlock.DISTANCE, state.get(LeavesBlock.DISTANCE)));
             } else {
                 worldIn.setBlockState(pos, FruitfulBlocks.BUDDING_OAK_LEAVES.get().getDefaultState().with(LeavesBlock.PERSISTENT, false).with(LeavesBlock.DISTANCE, state.get(LeavesBlock.DISTANCE)));
             }
