@@ -1,16 +1,16 @@
 modLoader="javafml"
 loaderVersion="[32,)"
 license="All rights reserved"
-issueTrackerURL="https://github.com/Epic312/Fruitful/issues/"
+issueTrackerURL="https://github.com/teamauroramods/Fruitful-Forge/issues"
 
 [[mods]]
     modId="fruitful"
     version="${file.jarVersion}"
     displayName="Fruitful"
-    displayURL="https://discord.gg/BgE4EpP"
+    displayURL="https://discord.gg/VzXSCFp"
     logoFile="logo.png"
     authors="Team Aurora"
-    description="Apples, peaches, and oranges grow on trees! Featuring new dishes made from each."
+    description="Improves the gameplay of obtaining apples by giving them a new tree!"
 
 [[dependencies.fruitful]]
     modId="forge"
